@@ -1,0 +1,1136 @@
+==81093== Memcheck, a memory error detector
+==81093== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==81093== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==81093== Command: ./SSLChain
+==81093== Parent PID: 78380
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4F3DC05: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x4157DB: CreateGenisisBlock(unsigned int, unsigned int, unsigned int, unsigned int) (main.cpp:88)
+==81093==    by 0x41599E: main (main.cpp:125)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F4840A: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA57: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x4157DB: CreateGenisisBlock(unsigned int, unsigned int, unsigned int, unsigned int) (main.cpp:88)
+==81093==    by 0x41599E: main (main.cpp:125)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F48449: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA57: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x4157DB: CreateGenisisBlock(unsigned int, unsigned int, unsigned int, unsigned int) (main.cpp:88)
+==81093==    by 0x5AEB3FF: ??? (in /lib/x86_64-linux-gnu/libc-2.19.so)
+==81093==    by 0x9: ???
+==81093==    by 0x41F674: ??? (in /home/ciaran/ClionProjects/SSLChain/build/SSLChain)
+==81093==    by 0xFFEFFFBFF: ???
+==81093==    by 0x207FFFFF00000000: ???
+==81093==    by 0xA8241CC000000001: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F48450: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA57: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x4157DB: CreateGenisisBlock(unsigned int, unsigned int, unsigned int, unsigned int) (main.cpp:88)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F4840A: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA57: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x4157DB: CreateGenisisBlock(unsigned int, unsigned int, unsigned int, unsigned int) (main.cpp:88)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F48449: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA57: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x4157DB: CreateGenisisBlock(unsigned int, unsigned int, unsigned int, unsigned int) (main.cpp:88)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F48450: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA57: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x4157DB: CreateGenisisBlock(unsigned int, unsigned int, unsigned int, unsigned int) (main.cpp:88)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F4840A: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D7C8: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x4157DB: CreateGenisisBlock(unsigned int, unsigned int, unsigned int, unsigned int) (main.cpp:88)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F48420: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D7C8: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x415701: createGenisisCerts() (main.cpp:49)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4F330CE: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x410101: CSHA512::Finalize(unsigned char*) (sha512.cpp:195)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F330D6: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x410101: CSHA512::Finalize(unsigned char*) (sha512.cpp:195)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F6C7: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F331FB: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F973: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F331FB: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F730: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F331FB: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F81C: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F331FB: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F830: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F331FB: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F741: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F331FB: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F7B5: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F331FB: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2F953: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F331FB: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F330F2: i2c_ASN1_INTEGER (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D5FA: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x10101: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F48420: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA57: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x30010101: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4F3D53A: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F6C7: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F973: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F730: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F81C: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F830: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F741: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F7B5: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2F953: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F6C7: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F38D2D: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D93A: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F973: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F38D2D: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D93A: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F730: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F38D2D: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D93A: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F81C: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F38D2D: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D93A: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F830: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F38D2D: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D93A: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F741: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F38D2D: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D93A: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F7B5: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F38D2D: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D93A: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2F7E3: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F38D2D: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D93A: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2F7E3: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F3D551: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F48449: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D7C8: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F48450: ASN1_put_object (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D7C8: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4F32013: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F32015: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F32020: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F6C7: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F32031: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F973: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F32031: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F730: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F32031: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F81C: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F32031: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F830: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F32031: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F741: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F32031: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F7B5: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F32031: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2F7E3: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4F32031: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F32044: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4F32047: i2c_ASN1_BIT_STRING (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D588: asn1_ex_i2c (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D740: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3D95D: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DD10: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DA9B: ASN1_item_ex_i2d (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x4F3DC1E: ??? (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416CB7: encodeCert(x509_st*) (xcert.cpp:80)
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x57777AB: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416CCD: encodeCert(x509_st*) (xcert.cpp:81)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x5777A03: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416CCD: encodeCert(x509_st*) (xcert.cpp:81)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x57A5707: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1300)
+==81093==    by 0x57779C4: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416CCD: encodeCert(x509_st*) (xcert.cpp:81)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x57A5709: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1302)
+==81093==    by 0x57779C4: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416CCD: encodeCert(x509_st*) (xcert.cpp:81)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x57A5724: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1300)
+==81093==    by 0x57779C4: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416CCD: encodeCert(x509_st*) (xcert.cpp:81)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x57B871B: __GI_mempcpy (memcpy.S:71)
+==81093==    by 0x57A564C: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1320)
+==81093==    by 0x57779C4: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416CCD: encodeCert(x509_st*) (xcert.cpp:81)
+==81093==    by 0x4156EE: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x57777AB: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416D08: hashCert(unsigned char*) (xcert.cpp:88)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x5777A03: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416D08: hashCert(unsigned char*) (xcert.cpp:88)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x57A5707: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1300)
+==81093==    by 0x57779C4: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416D08: hashCert(unsigned char*) (xcert.cpp:88)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x57A5709: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1302)
+==81093==    by 0x57779C4: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416D08: hashCert(unsigned char*) (xcert.cpp:88)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x57A5724: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1300)
+==81093==    by 0x57779C4: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416D08: hashCert(unsigned char*) (xcert.cpp:88)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2E0E2: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x416D52: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093==    by 0x636F6C0913030454: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2E0F4: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x416D52: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093==    by 0x636F6C0913030454: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F6C7: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F6CD: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F6DA: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F730: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F741: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F7B5: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2F950: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Use of uninitialised value of size 8
+==81093==    at 0x4C2F953: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Conditional jump or move depends on uninitialised value(s)
+==81093==    at 0x4C2F95E: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x4E9E7C2: SHA256_Update (in /lib/x86_64-linux-gnu/libcrypto.so.1.0.0)
+==81093==    by 0x416D6B: hashCert(unsigned char*) (xcert.cpp:95)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093== 
+==81093== Invalid read of size 1
+==81093==    at 0x5777A03: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x416DA8: hashCert(unsigned char*) (xcert.cpp:99)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093==  Address 0x60fa960 is 0 bytes after a block of size 32 alloc'd
+==81093==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x416D15: hashCert(unsigned char*) (xcert.cpp:89)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093==    by 0x636F6C0913030454: ???
+==81093== 
+==81093== Invalid read of size 1
+==81093==    at 0x5777A03: vfprintf (vfprintf.c:1661)
+==81093==    by 0x5780498: printf (printf.c:33)
+==81093==    by 0x415729: createGenisisCerts() (main.cpp:52)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093==    by 0x636F6C0913030454: ???
+==81093==  Address 0x60fa960 is 0 bytes after a block of size 32 alloc'd
+==81093==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==81093==    by 0x416D15: hashCert(unsigned char*) (xcert.cpp:89)
+==81093==    by 0x4156F6: createGenisisCerts() (main.cpp:48)
+==81093==    by 0x2A09060D30010101: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093==    by 0x636F6C0913030454: ???
+==81093== 
+==81093== Jump to the invalid address stated on the next line
+==81093==    at 0x2A09060D30010102: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093==    by 0x636F6C0913030454: ???
+==81093==    by 0x1E3074736F686C60: ???
+==81093==    by 0x3432313036310D16: ???
+==81093==    by 0x175A393130353430: ???
+==81093==  Address 0x2a09060d30010102 is not stack'd, malloc'd or (recently) free'd
+==81093== 
+==81093== 
+==81093== Process terminating with default action of signal 11 (SIGSEGV)
+==81093==  Bad permissions for mapped region at address 0x2A09060D30010102
+==81093==    at 0x2A09060D30010102: ???
+==81093==    by 0x501010DF7864885: ???
+==81093==    by 0x9300B313A300004: ???
+==81093==    by 0x4902130604550305: ???
+==81093==    by 0x5503061530173144: ???
+==81093==    by 0x6F43794D0E130A03: ???
+==81093==    by 0x6E4920796E61706C: ???
+==81093==    by 0x306103012312E62: ???
+==81093==    by 0x636F6C0913030454: ???
+==81093==    by 0x1E3074736F686C60: ???
+==81093==    by 0x3432313036310D16: ???
+==81093==    by 0x175A393130353430: ???
+==81093== 
+==81093== HEAP SUMMARY:
+==81093==     in use at exit: 25,840 bytes in 310 blocks
+==81093==   total heap usage: 5,880 allocs, 5,570 frees, 645,069 bytes allocated
+==81093== 
+==81093== LEAK SUMMARY:
+==81093==    definitely lost: 744 bytes in 7 blocks
+==81093==    indirectly lost: 24,183 bytes in 290 blocks
+==81093==      possibly lost: 385 bytes in 3 blocks
+==81093==    still reachable: 528 bytes in 10 blocks
+==81093==         suppressed: 0 bytes in 0 blocks
+==81093== Rerun with --leak-check=full to see details of leaked memory
+==81093== 
+==81093== For counts of detected and suppressed errors, rerun with: -v
+==81093== Use --track-origins=yes to see where uninitialised values come from
+==81093== ERROR SUMMARY: 268 errors from 79 contexts (suppressed: 0 from 0)
