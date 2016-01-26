@@ -1,6 +1,8 @@
 /**
- * Barebones SSLChain implementaton
+ * Barebones SSLChain implementation
  * xcert.h
+ *
+ * X509 Utils
  */
 
 #include <openssl/pem.h>
@@ -13,6 +15,8 @@
 
 #include "uint256.h"
 #include "hash.h"
+
+using std::string;
 
  typedef std::vector<unsigned char*> CertVector;
 
@@ -34,9 +38,14 @@ EVP_PKEY* generate_rsa();
 X509* generate_x509(EVP_PKEY* pkey);
 
 unsigned char* pemCert(X509* cert);
+
 uint256 convertTest(X509* cert);
+
+uint256 getCertHash(unsigned char* pem);
+
+
 /**
- * Create a new certificate stack using OpenSSL's STACK_OF(obj*) implemenation
+ * Create a new certificate stack using OpenSSL's STACK_OF(obj*) implementation
  *
  * @return a new STACK_OF(X509*) initialized to null
  */
@@ -46,7 +55,7 @@ STACK_OF(X509)* createCertStack();
  * Push a certificate to an OpenSSL STACK object
  *
  * @param the stack object
- * @param the certificte to be pushed
+ * @param the certificate to be pushed
  *
  * @return the updated stack object
  */

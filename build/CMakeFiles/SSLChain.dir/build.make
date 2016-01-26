@@ -328,9 +328,32 @@ CMakeFiles/SSLChain.dir/utilstrencodings.cpp.o.provides: CMakeFiles/SSLChain.dir
 
 CMakeFiles/SSLChain.dir/utilstrencodings.cpp.o.provides.build: CMakeFiles/SSLChain.dir/utilstrencodings.cpp.o
 
+CMakeFiles/SSLChain.dir/primitives/certs.cpp.o: CMakeFiles/SSLChain.dir/flags.make
+CMakeFiles/SSLChain.dir/primitives/certs.cpp.o: ../primitives/certs.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ciaran/ClionProjects/SSLChain/build/CMakeFiles $(CMAKE_PROGRESS_13)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/SSLChain.dir/primitives/certs.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/SSLChain.dir/primitives/certs.cpp.o -c /home/ciaran/ClionProjects/SSLChain/primitives/certs.cpp
+
+CMakeFiles/SSLChain.dir/primitives/certs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSLChain.dir/primitives/certs.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ciaran/ClionProjects/SSLChain/primitives/certs.cpp > CMakeFiles/SSLChain.dir/primitives/certs.cpp.i
+
+CMakeFiles/SSLChain.dir/primitives/certs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSLChain.dir/primitives/certs.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ciaran/ClionProjects/SSLChain/primitives/certs.cpp -o CMakeFiles/SSLChain.dir/primitives/certs.cpp.s
+
+CMakeFiles/SSLChain.dir/primitives/certs.cpp.o.requires:
+.PHONY : CMakeFiles/SSLChain.dir/primitives/certs.cpp.o.requires
+
+CMakeFiles/SSLChain.dir/primitives/certs.cpp.o.provides: CMakeFiles/SSLChain.dir/primitives/certs.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/primitives/certs.cpp.o.provides.build
+.PHONY : CMakeFiles/SSLChain.dir/primitives/certs.cpp.o.provides
+
+CMakeFiles/SSLChain.dir/primitives/certs.cpp.o.provides.build: CMakeFiles/SSLChain.dir/primitives/certs.cpp.o
+
 CMakeFiles/SSLChain.dir/primitives/block.cpp.o: CMakeFiles/SSLChain.dir/flags.make
 CMakeFiles/SSLChain.dir/primitives/block.cpp.o: ../primitives/block.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ciaran/ClionProjects/SSLChain/build/CMakeFiles $(CMAKE_PROGRESS_13)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ciaran/ClionProjects/SSLChain/build/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/SSLChain.dir/primitives/block.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/SSLChain.dir/primitives/block.cpp.o -c /home/ciaran/ClionProjects/SSLChain/primitives/block.cpp
 
@@ -365,6 +388,7 @@ SSLChain_OBJECTS = \
 "CMakeFiles/SSLChain.dir/pubkey.cpp.o" \
 "CMakeFiles/SSLChain.dir/ecwrapper.cpp.o" \
 "CMakeFiles/SSLChain.dir/utilstrencodings.cpp.o" \
+"CMakeFiles/SSLChain.dir/primitives/certs.cpp.o" \
 "CMakeFiles/SSLChain.dir/primitives/block.cpp.o"
 
 # External object files for target SSLChain
@@ -382,6 +406,7 @@ SSLChain: CMakeFiles/SSLChain.dir/xcert.cpp.o
 SSLChain: CMakeFiles/SSLChain.dir/pubkey.cpp.o
 SSLChain: CMakeFiles/SSLChain.dir/ecwrapper.cpp.o
 SSLChain: CMakeFiles/SSLChain.dir/utilstrencodings.cpp.o
+SSLChain: CMakeFiles/SSLChain.dir/primitives/certs.cpp.o
 SSLChain: CMakeFiles/SSLChain.dir/primitives/block.cpp.o
 SSLChain: CMakeFiles/SSLChain.dir/build.make
 SSLChain: CMakeFiles/SSLChain.dir/link.txt
@@ -404,6 +429,7 @@ CMakeFiles/SSLChain.dir/requires: CMakeFiles/SSLChain.dir/xcert.cpp.o.requires
 CMakeFiles/SSLChain.dir/requires: CMakeFiles/SSLChain.dir/pubkey.cpp.o.requires
 CMakeFiles/SSLChain.dir/requires: CMakeFiles/SSLChain.dir/ecwrapper.cpp.o.requires
 CMakeFiles/SSLChain.dir/requires: CMakeFiles/SSLChain.dir/utilstrencodings.cpp.o.requires
+CMakeFiles/SSLChain.dir/requires: CMakeFiles/SSLChain.dir/primitives/certs.cpp.o.requires
 CMakeFiles/SSLChain.dir/requires: CMakeFiles/SSLChain.dir/primitives/block.cpp.o.requires
 .PHONY : CMakeFiles/SSLChain.dir/requires
 

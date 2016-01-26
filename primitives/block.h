@@ -7,8 +7,9 @@
 #define BITCOIN_PRIMITIVES_BLOCK_H
 
  #include "../uint256.h"
- //#include "../serialize.h"
+ #include "../serialize.h"
  #include "../xcert.h"
+ #include "certs.h"
 
  //SSLChains's Blockcahin is practically identical to Bitcoin's one.
 
@@ -68,8 +69,8 @@
  {
  public:
  	//STACK_OF(X509)* certs;
-    std::vector<unsigned char*> certs;
-    //CertVector* certs;
+    //std::vector<unsigned char*> certs;
+	 std::vector<Certificate> certs;
 
  	mutable bool fChecked;
 

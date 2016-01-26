@@ -11,13 +11,11 @@
  #include "main.h"
  #include "hash.h"
  #include <time.h>
-#include <exception>
-#include <iostream>
+ #include <iostream>
 
 //typedef std::vector<unsigned char*> CertVector;
 
-std::vector<unsigned char*> createGenisisCerts()
- //CertVector* createGenisisCerts()
+ /*std::vector<unsigned char*> createGenisisCerts()
  {
     printf("....CreateGeneisisCerts....\n");
 
@@ -34,37 +32,78 @@ std::vector<unsigned char*> createGenisisCerts()
         X509* x509_2 = generate_x509(key_2);
         X509* x509_3 = generate_x509(key_3);
 
-        convertTest(x509);
+        //convertTest(x509);
 
         unsigned char* cstr = pemCert(x509);
-        unsigned char* cert = reinterpret_cast<unsigned char*>(cstr);
         //printf("%s\n", cert);
 
-        unsigned char* hashedCert0 = hashCert(cert);
+        //unsigned char* hashedCert0 = hashCert(cert);
 
         unsigned char* cstr2 = pemCert(x509_2);
-        unsigned char* cert2 = reinterpret_cast<unsigned char*>(cstr2);
-        unsigned char* hashedCert2 = hashCert(cert2);
+        //unsigned char* hashedCert2 = hashCert(cert2);
 
         unsigned char* cstr3 = pemCert(x509_3);
-        unsigned char* cert3 = reinterpret_cast<unsigned char*>(cstr3);
-        unsigned char* hashedCert3 = hashCert(cert3);
+        //unsigned char* hashedCert3 = hashCert(cert3);
 
 
-        vec.push_back(hashedCert0);
-        vec.push_back(hashedCert2);
-        vec.push_back(hashedCert3);
+        vec.push_back(cstr);
+        vec.push_back(cstr2);
+        vec.push_back(cstr3);
     }
 
     return vec;
- }
+ }*/
+
+std::vector<Certificate> createGenisisCerts()
+{
+	std::vector<Certificate> vec;
+	//Create a big block of certs to place in the tree
+
+	Certificate cert = createCert((unsigned char*)"IE",
+	                              (unsigned char*)"Trinity College, Dublin",
+	                              (unsigned char*)"John Doe");
+	vec.push_back(cert);
+
+	//cert.certDataVerif();
+
+	Certificate cert2 = createCert((unsigned char*)"IE",
+	                              (unsigned char*)"University College Dublin",
+	                              (unsigned char*)"Jane Doe");
+	vec.push_back(cert2);
+
+	Certificate cert3 = createCert((unsigned char*)"IE",
+	                               (unsigned char*)"Dublin City University",
+	                               (unsigned char*)"Joe Bloggs");
+	vec.push_back(cert3);
+
+	Certificate cert4 = createCert((unsigned char*)"UK",
+	                               (unsigned char*)"Queen's University Belfast",
+	                               (unsigned char*)"Billy Strong");
+	vec.push_back(cert4);
+
+	return vec;
+}
+
+Certificate createCert( unsigned char* countryCode, unsigned char* organization,
+                        unsigned char* commonName )
+{
+	EVP_PKEY* key = generate_rsa();
+	Certificate cert;
+	cert.generateCert(key, countryCode, organization, commonName);
+	//cert.calcHash();
+	uint256 hash = cert.GetHash();
+	EVP_PKEY_free(key);
+	return cert;
+}
 
  CBlock CreateGenisisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, uint32_t nVersion)
  {
     printf("....CreateGenisisBlock..\n");
-    std::vector<unsigned char*> nCerts;
-    //CertVector* nCerts;
-    nCerts = createGenisisCerts();
+
+	//Certs are normal here, they get hashed when they are passed through the m-tree
+    //std::vector<unsigned char*> nCerts;
+	 std::vector<Certificate> nCerts;
+     nCerts = createGenisisCerts();
 
     printf("....CreatingBlocks....\n");
  	CBlock genesis;
@@ -102,6 +141,6 @@ std::vector<unsigned char*> createGenisisCerts()
     printf("....Started....\n");
  	//uint32_t timestamp = (uint32_t)time(NULL);
  	CBlock genBlock = CreateGenisisBlock(2820938944, 2, 0x207fffff, 1);
-     //genBlock.ToString();
+    //genBlock.ToString();
  	return 0;
  }

@@ -11,6 +11,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/SSLChain.dir/pubkey.cpp.o"
   "CMakeFiles/SSLChain.dir/ecwrapper.cpp.o"
   "CMakeFiles/SSLChain.dir/utilstrencodings.cpp.o"
+  "CMakeFiles/SSLChain.dir/primitives/certs.cpp.o"
   "CMakeFiles/SSLChain.dir/primitives/block.cpp.o"
   "SSLChain.pdb"
   "SSLChain"

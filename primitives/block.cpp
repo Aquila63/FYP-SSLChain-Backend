@@ -22,22 +22,12 @@
  	std::vector<uint256> vMerkleTree;
  	vMerkleTree.reserve(sizeof(certs) * 2 + 16);
 
+    for(std::vector<Certificate>::const_iterator it(certs.begin()); it != certs.end(); ++it)
+        vMerkleTree.push_back(it->GetHash());
 
- 	//std::vector<X509*> certVec;
- 	//vMerkleTree.reserve(sizeof(certs));
-    //int stackLen = getStackSize(certs);
- 	//STACK_OF(X509)* certsCpy= copyStack(certs);
- 	//for(int i = 0; i < stackLen; i++)
- 	//{
- 	//	X509* cert = popFromCertStack(certsCpy);
- 	//	certVec.push_back(cert);
- 	//}
- 	//std::reverse(certVec.begin(), certVec.end());
-
-    //for(std::vector<unsigned char*>::const_iterator it(certs.begin()); it != certs.end(); ++it)
-    //    vMerkleTree.push_back(it);
  	int j = 0;
  	bool mutated = false;
+	int size = certs.size();
  	for(int nSize = certs.size(); nSize > 1; (nSize + 1) / 2)
  	{
  		for(int i = 0; i < nSize; i+= 2)
@@ -48,6 +38,7 @@
  				// Two identical hashes at the end of the list at a particular level.
                 mutated = true;
  			}
+
  			vMerkleTree.push_back(Hash(BEGIN(vMerkleTree[j+i]), END(vMerkleTree[j+i]),
  									   BEGIN(vMerkleTree[j+i2]), END(vMerkleTree[j+i2])));
 

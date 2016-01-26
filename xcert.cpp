@@ -10,8 +10,6 @@
 #include <bits/unique_ptr.h>
 #include "xcert.h"
 
-using std::string;
-
 EVP_PKEY* generate_rsa()
 {
 	EVP_PKEY* pkey;
@@ -101,6 +99,13 @@ uint256 convertTest(X509* cert)
     return hash;
 }
 
+/*uint256 getCertHash(unsigned char* pem)
+{
+	//uint256 hash = Hash(&pem[0], &pem[sizeof(pem)]);
+	//return hash;
+
+	return SerializeHash(pem);
+}*/
 unsigned char* hashCert(unsigned char* data)
 {
     //printf("....HashingCert....\n");

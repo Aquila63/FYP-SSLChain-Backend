@@ -330,6 +330,30 @@ primitives/block.cpp.s:
 	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/primitives/block.cpp.s
 .PHONY : primitives/block.cpp.s
 
+primitives/certs.o: primitives/certs.cpp.o
+.PHONY : primitives/certs.o
+
+# target to build an object file
+primitives/certs.cpp.o:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/primitives/certs.cpp.o
+.PHONY : primitives/certs.cpp.o
+
+primitives/certs.i: primitives/certs.cpp.i
+.PHONY : primitives/certs.i
+
+# target to preprocess a source file
+primitives/certs.cpp.i:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/primitives/certs.cpp.i
+.PHONY : primitives/certs.cpp.i
+
+primitives/certs.s: primitives/certs.cpp.s
+.PHONY : primitives/certs.s
+
+# target to generate assembly for a file
+primitives/certs.cpp.s:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/primitives/certs.cpp.s
+.PHONY : primitives/certs.cpp.s
+
 pubkey.o: pubkey.cpp.o
 .PHONY : pubkey.o
 
@@ -462,6 +486,9 @@ help:
 	@echo "... primitives/block.o"
 	@echo "... primitives/block.i"
 	@echo "... primitives/block.s"
+	@echo "... primitives/certs.o"
+	@echo "... primitives/certs.i"
+	@echo "... primitives/certs.s"
 	@echo "... pubkey.o"
 	@echo "... pubkey.i"
 	@echo "... pubkey.s"
