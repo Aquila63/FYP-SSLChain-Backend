@@ -1,5 +1,5 @@
 /**
- * Barebones SSLChain implementaton
+ * Barebones SSLChain implementation
  * block.cpp
  */
 
@@ -10,10 +10,10 @@
  #include "../tinyformat.h"
  #include "../xcert.h"
 
- //uint256 CBlockHeader::GetHash() const
- //{
- //	return SerializeHash(*this);
- //}
+ uint256 CBlockHeader::GetHash() const
+ {
+ 	return SerializeHash(*this);
+ }
 
  uint256 CBlock::ComputeMerkleRoot(bool *fMutated) const
  {
@@ -27,8 +27,7 @@
 
  	int j = 0;
  	bool mutated = false;
-	int size = certs.size();
- 	for(int nSize = certs.size(); nSize > 1; (nSize + 1) / 2)
+ 	for(int nSize = certs.size(); nSize > 1; nSize = (nSize + 1) / 2)
  	{
  		for(int i = 0; i < nSize; i+= 2)
  		{
@@ -54,7 +53,7 @@
  	return(vMerkleTree.empty() ? uint256() : vMerkleTree.back());
  }
 
- /*std::string CBlock::ToString() const
+ std::string CBlock::ToString() const
  {
  	std::stringstream ss;
  	ss << strprintf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, certs=%u)\n",
@@ -63,7 +62,7 @@
  					hashPrevBlock.ToString(),
  					hashMerkleRoot.ToString(),
  					nTime, nBits, nNonce,
- 					certs->size());
+ 					certs.size());
 
  	return ss.str();
- }*/
+ }

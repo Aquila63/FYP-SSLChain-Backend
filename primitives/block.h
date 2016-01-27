@@ -29,10 +29,10 @@
  		SetNull();
  	}
 
-    /*ADD_SERIALIZE_METHODS;
+	 ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) const {
         READWRITE(this->nVersion);
         nVersion = this->nVersion;
         READWRITE(hashPrevBlock);
@@ -40,7 +40,7 @@
         READWRITE(nTime);
         READWRITE(nBits);
         READWRITE(nNonce);
-    }*/
+    }
 
  	void SetNull()
  	{

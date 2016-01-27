@@ -5,46 +5,14 @@ Certificate::Certificate()
 	this->cert = NULL;
 }
 
-void Certificate::generateCert(EVP_PKEY *pkey)
-{
-	printf("....Generating Cert....\n");
-	X509 * x509;
-	x509 = X509_new();
 
-	// Set serial no to 1 for now
-	ASN1_INTEGER_set(X509_get_serialNumber(x509), 1);
-	// Set validity
-	X509_gmtime_adj(X509_get_notBefore(x509), 0);
-	X509_gmtime_adj(X509_get_notAfter(x509), 3153600L);
-	// Set pubkey
-	X509_set_pubkey(x509, pkey);
-
-	X509_NAME *name;
-	name = X509_get_subject_name(x509);
-
-	// Country
-	X509_NAME_add_entry_by_txt(name, "C", MBSTRING_ASC,
-	                           (unsigned char*)"IE", -1, -1, 0);
-	// Company/Organization
-	X509_NAME_add_entry_by_txt(name, "O",  MBSTRING_ASC,
-	                           (unsigned char*)"MyCompany Inc.", -1, -1, 0);
-	// Common Name
-	X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC,
-	                           (unsigned char*)"localhost", -1, -1, 0);
-
-	// Set issuer name
-	X509_set_issuer_name(x509, name);
-
-	// Self-signed for now
-	X509_sign(x509, pkey, EVP_sha1());
-
-	this->cert = x509;
-}
-
+/**
+ * Generate a certificate and enclose passed in data
+ */
 void Certificate::generateCert(EVP_PKEY* pkey, unsigned char* countryCode, unsigned char* organization,
                                unsigned char* commonName)
 {
-	printf("....Generating Cert....\n");
+	//printf("....Generating Cert....\n");
 	X509 * x509;
 	x509 = X509_new();
 
@@ -78,6 +46,12 @@ void Certificate::generateCert(EVP_PKEY* pkey, unsigned char* countryCode, unsig
 	this->cert = x509;
 }
 
+/**
+ * Convert the X509 cert associated with the object to PEM format (base64 encoded data w/ headers)
+ *
+ * @return output char array containing the certificate in PEM format
+ */
+
 char* Certificate::convertToPem()
 {
 	BIO * bio_out = BIO_new(BIO_s_mem());
@@ -93,6 +67,14 @@ char* Certificate::convertToPem()
 	memcpy(out, pem, pemStr.length());
 	return out;
 }
+
+/**
+ * Convert the X509 cert associated with the object to PEM format (base64 encoded data w/ headers)
+ *
+ * This function works in the same way as the previous one, but it returns the data in an unsigned char array
+ *
+ * @return output unsigned char array containing the certificate in PEM format
+ */
 
 unsigned char* Certificate::uConvertToPem()
 {
@@ -111,6 +93,10 @@ unsigned char* Certificate::uConvertToPem()
 
 	return retPem;
 }
+
+/**
+ * Print out the details of a certificate (used mainly to verify its contents)
+ */
 
 void Certificate::certDataVerif()
 {

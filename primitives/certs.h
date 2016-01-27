@@ -5,25 +5,6 @@
 #include "../serialize.h"
 #include "../xcert.h"
 
-/*class Cert
-{
-public:
-	X509* cert;
-
-	Cert(EVP_PKEY* pkey, unsigned char* countryCode, unsigned char* organization,
-	     unsigned char* commonName)
-	{
-		cert = createCert(EVP_PKEY* pkey, unsigned char* countryCode, unsigned char* organization,
-							unsigned char* commonName)
-	}
-
-	X509* createCert(EVP_PKEY* pkey, unsigned char* countryCode, unsigned char* organization,
-	                 unsigned char* commonName)
-	{
-
-	}
-};*/
-
 class Certificate
 {
 public:
@@ -45,9 +26,9 @@ public:
 	{
 
 		/**
-		 * In order to hash the certificate, I convert it to its textual representation (PEM) and read in
+		 * In order to hash the certificate, I convert it to PEM format (base64 encoded data) and read in
 		 * each character individually to the BTC Serialization system (as the only type it can take which
-		 * is appropriate in this scenario is a char*)
+		 * is appropriate in this scenario is a char)
 		 *
 		 * BTC uses this system to gather data to hash. My issue was that I wasn't reading anything, so all of the
 		 * hashes were the same (i.e. it was hashing a null object of sorts)
@@ -58,8 +39,6 @@ public:
 		{
 			READWRITE(pem[i]);
 		}
-		//READWRITE(hash);
-		//READWRITE(n);
 	}
 
 	/**
