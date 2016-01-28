@@ -24,6 +24,8 @@
  	uint32_t nBits;
  	uint32_t nNonce;
 
+	uint32_t nHeight;
+
  	CBlockHeader()
  	{
  		SetNull();
@@ -50,6 +52,7 @@
  		nTime = 0;
  		nBits = 0;
  		nNonce = 0; //Need?
+	    nHeight = 0;
  	}
 
  	bool IsNull() const
@@ -63,6 +66,11 @@
  	{
  		return (int64_t) nTime;
  	}
+
+	int32_t GetHeight() const
+	{
+		return nHeight;
+	}
  };
 
  class CBlock : public CBlockHeader
@@ -102,6 +110,7 @@
  		block.nTime = nTime;
  		block.nBits = nBits;
  		block.nNonce = nNonce;
+	    block.nHeight = nHeight;
  		return block;
  	}
 

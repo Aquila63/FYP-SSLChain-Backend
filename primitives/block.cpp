@@ -22,8 +22,8 @@
  	std::vector<uint256> vMerkleTree;
  	vMerkleTree.reserve(sizeof(certs) * 2 + 16);
 
-    for(std::vector<Certificate>::const_iterator it(certs.begin()); it != certs.end(); ++it)
-        vMerkleTree.push_back(it->GetHash());
+	for(std::vector<Certificate>::const_iterator it(certs.begin()); it != certs.end(); ++it)
+	    vMerkleTree.push_back(it->GetHash());
 
  	int j = 0;
  	bool mutated = false;
@@ -56,12 +56,12 @@
  std::string CBlock::ToString() const
  {
  	std::stringstream ss;
- 	ss << strprintf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, certs=%u)\n",
+ 	ss << strprintf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, nHeight=%u certs=%u)\n",
  					GetHash().ToString(),
  					nVersion,
  					hashPrevBlock.ToString(),
  					hashMerkleRoot.ToString(),
- 					nTime, nBits, nNonce,
+ 					nTime, nBits, nNonce, nHeight,
  					certs.size());
 
  	return ss.str();
