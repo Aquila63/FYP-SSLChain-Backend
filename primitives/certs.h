@@ -47,18 +47,18 @@ public:
 	 */
 
 	size_t GetSerializeSize(int nType, int nVersion) const {
-        CSizeComputer s(nType, nVersion);
+	    CSizeComputer s(nType, nVersion);
 		const_cast<Certificate*>(this)->SerializationOp(s, CSerActionSerialize(), nType, nVersion);
-        return s.size();
-    }
-    template<typename Stream>
-    void Serialize(Stream& s, int nType, int nVersion) const {
-	    const_cast<Certificate*>(this)->SerializationOp(s, CSerActionSerialize(), nType, nVersion);
-    }
-    template<typename Stream>
-    void Unserialize(Stream& s, int nType, int nVersion) {
-        SerializationOp(s, CSerActionUnserialize(), nType, nVersion);
-    }
+	    return s.size();
+	}
+	template<typename Stream>
+	void Serialize(Stream& s, int nType, int nVersion) const {
+		const_cast<Certificate*>(this)->SerializationOp(s, CSerActionSerialize(), nType, nVersion);
+	}
+	template<typename Stream>
+	void Unserialize(Stream& s, int nType, int nVersion) {
+		SerializationOp(s, CSerActionUnserialize(), nType, nVersion);
+	}
 #pragma endregion SERIALIZATION
 
 	void generateCert(EVP_PKEY* pkey);

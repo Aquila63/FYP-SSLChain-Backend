@@ -114,12 +114,12 @@
  		return block;
  	}
 
- 	// Build the merkle tree for this block and return the merkle root.
-    // If non-NULL, *mutated is set to whether mutation was detected in the merkle
-    // tree (a duplication of transactions in the block leading to an identical
-    // merkle root).
-    uint256 ComputeMerkleRoot(bool* mutated = NULL) const;
+	// Build the merkle tree for this block and return the merkle root.
+	// If non-NULL, *mutated is set to whether mutation was detected in the merkle
+	// tree (a duplication of transactions in the block leading to an identical
+	// merkle root).
+	uint256 ComputeMerkleRoot(bool* mutated = NULL) const;
 
-    std::string ToString() const;
+	std::string ToString() const;
  };
 #endif // BITCOIN_PRIMITIVES_BLOCK_H
