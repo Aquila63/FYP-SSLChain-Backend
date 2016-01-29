@@ -19,7 +19,7 @@ file(GLOB PRIMITIVE_DIR
         " ${CMAKE_SOURCE_DIR}/primitives/"
 )
 
-include_directories(${CRYPTO_DIR} ${PRIMITIVE_DIR})
+include_directories(${CRYPTO_DIR} ${PRIMITIVE_DIR} ${OPENSSL_INCLUDE_DIR})
 
 file(GLOB CRYPTO_SRC
         ${CMAKE_SOURCE_DIR}/crypto/*.cpp
@@ -31,6 +31,6 @@ file(GLOB PRIMITIVE_SRC
 
 add_executable( SSLChain ${CRYPTO_SRC} ${SOURCE_FILES} ${PRIMITIVE_SRC} )
 
-target_link_libraries(SSLChain ${OpenSSL_LIBRARES})
-target_link_libraries(SSLChain ${OpenSSL_SSL_LIBRARY})
-target_link_libraries(SSLChain ${OpenSSL_CRYPTO_LIBRARY})
+target_link_libraries(SSLChain ${OPENSSL_LIBRARES})
+target_link_libraries(SSLChain ${OPENSSL_SSL_LIBRARY})
+target_link_libraries(SSLChain ${OPENSSL_CRYPTO_LIBRARY})
