@@ -41,35 +41,40 @@ std::vector<Certificate> createGenisisCerts()
 
 	Certificate cert = createCert((unsigned char*)"IE",
 	                              (unsigned char*)"Trinity College, Dublin",
-	                              (unsigned char*)"John Doe");
+	                              (unsigned char*)"John Doe",
+	                              (unsigned char*)"jodoe@tcd.ie");
+	cert.certDataVerif();
+	cert.getEmail();
 	vec.push_back(cert);
 
-	//cert.certDataVerif();
 
 	Certificate cert2 = createCert((unsigned char*)"IE",
-	                              (unsigned char*)"University College Dublin",
-	                              (unsigned char*)"Jane Doe");
+	                               (unsigned char*)"University College Dublin",
+	                               (unsigned char*)"Jane Doe",
+	                               (unsigned char*)"jadoe@tcd.ie");
 	vec.push_back(cert2);
 
 	Certificate cert3 = createCert((unsigned char*)"IE",
 	                               (unsigned char*)"Dublin City University",
-	                               (unsigned char*)"Joe Bloggs");
+	                               (unsigned char*)"Joe Bloggs",
+	                               (unsigned char*)"jbloggs@tcd.ie");
 	vec.push_back(cert3);
 
 	Certificate cert4 = createCert((unsigned char*)"UK",
 	                               (unsigned char*)"Queen's University Belfast",
-	                               (unsigned char*)"Billy Strong");
+	                               (unsigned char*)"Billy Strong",
+	                               (unsigned char*)"bstring@qub.ac.uk");
 	vec.push_back(cert4);
 
 	return vec;
 }
 
 Certificate createCert( unsigned char* countryCode, unsigned char* organization,
-                        unsigned char* commonName )
+                        unsigned char* commonName, unsigned char* email)
 {
 	EVP_PKEY* key = generate_rsa();
 	Certificate cert;
-	cert.generateCert(key, countryCode, organization, commonName);
+	cert.generateCert(key, countryCode, organization, commonName, email);
 	//cert.calcHash();
 	//uint256 hash = cert.GetHash();
 	EVP_PKEY_free(key);
@@ -84,23 +89,28 @@ Certificate createCustomCert()
 	unsigned char* org;
 	string cnStr;
 	unsigned char* cn;
+	string emailStr;
+	unsigned char* email;
+
 	cout << "Certificate Initialization" << endl;
 	cout << "Please enter the following details:" << endl;
-	cout << "Country Code: ";
+	cout << "Country Code [C]: ";
 	cin >> ccStr;
 	cout << endl;
-	cout << "Organization: ";
+	cout << "Organization [0]: ";
 	cin >> orgStr;
 	cout << endl;
-	cout << "Common Name: ";
+	cout << "Common Name [CN]: ";
 	cin >> cnStr;
+	cout << "Email Address: ";
+	cin >> email;
 	cout << endl;
 
 	cc = unsignedStrConverter(ccStr);
 	org = unsignedStrConverter(orgStr);
 	cn = unsignedStrConverter(cnStr);
 
-	return createCert(cc, org, cn);
+	return createCert(cc, org, cn, email);
 }
 
 CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, uint32_t nVersion)
@@ -167,8 +177,10 @@ int main()
 	printf("----GENESIS BLOCK----\n%s", blockchain.Genesis()->ToString().c_str());
 	printf("\n");
 
-	CBlock aBlock = createStandardBlock();
-	addToChain(&aBlock);
-	printf("\n%s", blockchain.Tip()->ToString().c_str());
+	//CBlock aBlock = createStandardBlock();
+	//addToChain(&aBlock);
+	//printf("\n%s", blockchain.Tip()->ToString().c_str());
+
+
 	return 0;
 }

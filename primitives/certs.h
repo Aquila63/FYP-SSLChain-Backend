@@ -64,9 +64,11 @@ public:
 	void generateCert(EVP_PKEY* pkey);
 
 	void generateCert(EVP_PKEY* pkey, unsigned char* countryCode, unsigned char* organization,
-						unsigned char* commonName);
+						unsigned char* commonName, unsigned char* email);
 
 	void certDataVerif();
+
+
 
 	char* convertToPem();
 
@@ -75,6 +77,10 @@ public:
 	void calcHash();
 
 	uint256 GetHash() const;
+
+	RSA* getPublicKey();
+
+	char* getEmail();
 };
 
 #endif //SSLCHAIN_CERTS_H

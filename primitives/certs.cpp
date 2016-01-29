@@ -10,7 +10,7 @@ Certificate::Certificate()
  * Generate a certificate and enclose passed in data
  */
 void Certificate::generateCert(EVP_PKEY* pkey, unsigned char* countryCode, unsigned char* organization,
-                               unsigned char* commonName)
+                               unsigned char* commonName, unsigned char* email)
 {
 	//printf("....Generating Cert....\n");
 	X509 * x509;
@@ -36,6 +36,9 @@ void Certificate::generateCert(EVP_PKEY* pkey, unsigned char* countryCode, unsig
 	// Common Name
 	X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC,
 	                           commonName, -1, -1, 0);
+
+	X509_NAME_add_entry_by_txt(name, "emailAddress", MBSTRING_ASC,
+	                           email, -1, -1, 0);
 
 	// Set issuer name
 	X509_set_issuer_name(x509, name);
@@ -132,4 +135,20 @@ void Certificate::calcHash()
 uint256 Certificate::GetHash() const
 {
 	return SerializeHash(*this);
+}
+
+RSA* Certificate::getPublicKey()
+{
+	EVP_PKEY* pkey = X509_get_pubkey(cert);
+	RSA* rsa = EVP_PKEY_get1_RSA(pkey);
+	EVP_PKEY_free(pkey);
+	return rsa;
+}
+
+char* Certificate::getEmail()
+{
+	char* email;
+	X509_NAME* subject = X509_get_subject_name(cert);
+	X509_NAME_get_text_by_NID(subject, NID_pkcs9_emailAddress, email, 256);
+	return email;
 }

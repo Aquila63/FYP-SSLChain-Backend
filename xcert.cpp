@@ -2,8 +2,7 @@
  * Barebones SSLChain implementaton
  * xcert.cpp
  *
- * Most of the functions relating to the X509 certificates will be handled here
- * Mainly deals with the creation and management of X509 certs within the SSLChain sytem
+ * Essentially depricated thanks to the certificate primitives.
  */
 
 #include <stdio.h>
@@ -17,9 +16,6 @@ EVP_PKEY* generate_rsa()
 	RSA * rsa;
 	rsa = RSA_generate_key(2048, RSA_F4, NULL, NULL);
 	EVP_PKEY_assign_RSA(pkey, rsa);
-
-	if(pkey == NULL) { printf("!!!!!!!PKEY IS NULL!!!!!!!"); }
-	if(rsa == NULL) { printf("!!!!!!!RSA IS NULL!!!!!!!"); }
 
 	return pkey;
 };
@@ -92,20 +88,6 @@ const char* pemCertAlt(X509* cert)
     return pemStr.c_str();
 }
 
-uint256 convertTest(X509* cert)
-{
-    unsigned char* test = pemCert(cert);
-    uint256 hash = Hash(&test[0], &test[sizeof(test)]);
-    return hash;
-}
-
-/*uint256 getCertHash(unsigned char* pem)
-{
-	//uint256 hash = Hash(&pem[0], &pem[sizeof(pem)]);
-	//return hash;
-
-	return SerializeHash(pem);
-}*/
 unsigned char* hashCert(unsigned char* data)
 {
     //printf("....HashingCert....\n");
@@ -122,37 +104,4 @@ unsigned char* hashCert(unsigned char* data)
 	//printf("5....\n");
 	//printf("HASH - %s\n", hash);
 	return hash;
-}
-
-STACK_OF(X509)* createCertStack()
-{
-	STACK_OF(X509) *stack = sk_X509_new_null();
-	return stack;
-}
-
-void pushToCertStack(STACK_OF(X509)* stack, X509* cert)
-{
-	sk_X509_push(stack, cert);
-}
-
-X509* popFromCertStack(STACK_OF(X509)* stack)
-{
-	X509* cert = sk_X509_pop(stack);
-	return cert;
-}
-
-STACK_OF(X509)* copyStack(STACK_OF(X509)* stack)
-{
-	STACK_OF(X509) *sk = sk_X509_dup(stack);
-	return sk;
-}
-
-int getStackSize(STACK_OF(X509)* stack)
-{
-	return sk_X509_num(stack);
-}
-
-void freeStack(STACK_OF(X509)* stack)
-{
-	sk_X509_free(stack);
 }
