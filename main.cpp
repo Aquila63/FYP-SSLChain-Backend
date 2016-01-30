@@ -1,18 +1,16 @@
 /**
- * Barebones SSLChain implementation
- * main.cpp
- *
- * At this point, main.cpp is a testing ground for each
- * module that I construct
- */
+* Barebones SSLChain implementation
+* main.cpp
+*
+* At this point, main.cpp is a testing ground for each
+* module that I construct
+*/
 
- #include "primitives/block.h"
- #include "chain.h"
- #include "xcert.h"
- #include "main.h"
- #include "hash.h"
- #include <time.h>
- #include <iostream>
+#include "primitives/block.h"
+#include "chain.h"
+#include "main.h"
+#include <iostream>
+#include "server.h"
 
 using namespace std;
 
@@ -43,8 +41,7 @@ std::vector<Certificate> createGenisisCerts()
 	                              (unsigned char*)"Trinity College, Dublin",
 	                              (unsigned char*)"John Doe",
 	                              (unsigned char*)"jodoe@tcd.ie");
-	cert.certDataVerif();
-	cert.getEmail();
+	//cert.certDataVerif();
 	vec.push_back(cert);
 
 
@@ -168,18 +165,25 @@ void addToChain(CBlock* block)
 
 int main()
 {
-	printf("....Started....\n");
+	/*printf("....Started....\n");
 	uint32_t timestamp = (uint32_t)time(NULL);
 	CBlock genBlock = CreateGenesisBlock(timestamp, 2, 0x207fffff, 1);
 	//printf("\n%s", genBlock.ToString().c_str());
 	//uint256 hash = genBlock.GetHash();
 	addToChain(&genBlock);
 	printf("----GENESIS BLOCK----\n%s", blockchain.Genesis()->ToString().c_str());
-	printf("\n");
+	printf("\n");*/
 
 	//CBlock aBlock = createStandardBlock();
 	//addToChain(&aBlock);
 	//printf("\n%s", blockchain.Tip()->ToString().c_str());
+
+	Server server;
+
+	CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
+	server.blockchain.add(&genBlock);
+
+	server.start();
 
 
 	return 0;

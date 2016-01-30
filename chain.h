@@ -36,6 +36,12 @@ public:
 
 	void add(CBlock* block)
 	{
+		block->nHeight = this->GetHeight();
+		if(block->nHeight > 0)
+		{
+			uint256 pHash = this->Tip()->GetHash();
+			block->hashPrevBlock = pHash;
+		}
 		vChain.push_back(block);
 	}
 };

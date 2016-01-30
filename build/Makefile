@@ -378,6 +378,30 @@ pubkey.cpp.s:
 	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/pubkey.cpp.s
 .PHONY : pubkey.cpp.s
 
+server.o: server.cpp.o
+.PHONY : server.o
+
+# target to build an object file
+server.cpp.o:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/server.cpp.o
+.PHONY : server.cpp.o
+
+server.i: server.cpp.i
+.PHONY : server.i
+
+# target to preprocess a source file
+server.cpp.i:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/server.cpp.i
+.PHONY : server.cpp.i
+
+server.s: server.cpp.s
+.PHONY : server.s
+
+# target to generate assembly for a file
+server.cpp.s:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/server.cpp.s
+.PHONY : server.cpp.s
+
 uint256.o: uint256.cpp.o
 .PHONY : uint256.o
 
@@ -492,6 +516,9 @@ help:
 	@echo "... pubkey.o"
 	@echo "... pubkey.i"
 	@echo "... pubkey.s"
+	@echo "... server.o"
+	@echo "... server.i"
+	@echo "... server.s"
 	@echo "... uint256.o"
 	@echo "... uint256.i"
 	@echo "... uint256.s"

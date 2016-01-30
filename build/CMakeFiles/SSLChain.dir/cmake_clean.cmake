@@ -7,6 +7,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/SSLChain.dir/eccryptoverify.cpp.o"
   "CMakeFiles/SSLChain.dir/uint256.cpp.o"
   "CMakeFiles/SSLChain.dir/main.cpp.o"
+  "CMakeFiles/SSLChain.dir/server.cpp.o"
   "CMakeFiles/SSLChain.dir/xcert.cpp.o"
   "CMakeFiles/SSLChain.dir/pubkey.cpp.o"
   "CMakeFiles/SSLChain.dir/ecwrapper.cpp.o"
