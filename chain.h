@@ -2,10 +2,14 @@
 #define SSLCHAIN_CHAIN_H
 
 #include "primitives/block.h"
+#include "tinyformat.h"
 
 #include <vector>
+#include <string>
+#include <sstream>
 
 using std::vector;
+using std::string;
 
 class CChain
 {
@@ -43,6 +47,18 @@ public:
 			block->hashPrevBlock = pHash;
 		}
 		vChain.push_back(block);
+	}
+
+	string printChain()
+	{
+		std::stringstream ss;
+		for(auto i = vChain.size(); i-- > 0;)
+		{
+			CBlock* block = vChain[i];
+			ss << strprintf("%s\n", block->GetHash().ToString());
+		}
+
+			return ss.str();
 	}
 };
 

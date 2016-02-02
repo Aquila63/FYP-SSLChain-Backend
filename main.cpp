@@ -92,20 +92,26 @@ Certificate createCustomCert()
 	cout << "Certificate Initialization" << endl;
 	cout << "Please enter the following details:" << endl;
 	cout << "Country Code [C]: ";
-	cin >> ccStr;
+	//cin >> ccStr;
+	getline(cin, ccStr);
 	cout << endl;
 	cout << "Organization [0]: ";
-	cin >> orgStr;
+	//cin >> orgStr;
+	getline(cin, orgStr);
 	cout << endl;
 	cout << "Common Name [CN]: ";
-	cin >> cnStr;
+	//cin >> cnStr;
+	getline(cin, orgStr);
+	cout << endl;
 	cout << "Email Address: ";
-	cin >> email;
+	//cin >> emailStr;
+	getline(cin, emailStr);
 	cout << endl;
 
 	cc = unsignedStrConverter(ccStr);
 	org = unsignedStrConverter(orgStr);
 	cn = unsignedStrConverter(cnStr);
+	email = unsignedStrConverter(emailStr);
 
 	return createCert(cc, org, cn, email);
 }
@@ -183,6 +189,11 @@ int main()
 	CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
 	server.blockchain.add(&genBlock);
 
+	CBlock genBlock2 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
+	server.blockchain.add(&genBlock2);
+
+	//CBlock aBlock = createStandardBlock();
+	//addToChain(&aBlock);
 	server.start();
 
 
