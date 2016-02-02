@@ -15,6 +15,36 @@ using std::string;
 
 Server::Server() { }
 
+CBlock* Server::findBlock(string str)
+{
+	string result;
+	std::regex re("GET BLOCK (.*)");
+	std::smatch match;
+	//cout << str << endl;
+	//assert(std::regex_search(str, match, re));
+	if(std::regex_search(str, match, re) && match.size() > 1)
+		result = match.str(1); //Flagged as an error, but still compiles.
+
+	//Debugger says that result is empty, but cout prints it
+	//Shit's strange
+	//cout << "REGEX RESULT = " << result << endl;
+
+	CBlock* resBlock = NULL;
+
+	for(std::vector<CBlock*>::iterator it(blockchain.vChain.begin()); it != blockchain.vChain.end(); ++it)
+	{
+		string hash = (*it)->GetHash().ToString();
+
+		if(hash.compare(0, result.length(), result) == 0)
+			resBlock = (*it);
+
+		//if(starts_with(hash, match[0]))
+		//	resBlock = (*it);
+	}
+
+	return resBlock;
+}
+
 int Server::start()
 {
 	int status;
@@ -38,14 +68,22 @@ void Server::receive()
 	csockfd = accept(socketfd, (struct sockaddr* )&client_addr, &clilen);
 	while(1)
 	{
-		//printf("Receiving...\n");
+		printf("\n");
 		long nBytes = 0;
 		//char buffer[1000];
 
-		//Using vector as a buffer instead of a char array as garbage data turns up in the recv
-		//buffer as a lot of the allocate bytes don't get used.
+		/*
+		 * Using vector as a buffer instead of a char array; garbage data turns up
+		 * due to the fact that I don't use all of the bytes that I statically
+		 * allocate to a char array buffer (like char buffer[1000] - I may only
+		 * use a tenth of that; the rest is filled in with garbage, a dynamic
+		 * data structure like vectors works really well, actually
+		 */
+
 		vector<unsigned char> buffer;
 		buffer.resize(5000);
+
+
 		nBytes = recv(csockfd, &buffer[0], buffer.size(), 0);
 		buffer.resize(nBytes);
 		string str(buffer.begin(), buffer.end());
@@ -64,37 +102,36 @@ void Server::receive()
 		}
 		else if(str.find("GET BLOCK") != string::npos)
 		{
-			string response, result;
-
-			std::regex re("GET BLOCK (.*)");
-			std::smatch match;
-			//cout << str << endl;
-			//assert(std::regex_search(str, match, re));
-			if(std::regex_search(str, match, re) && match.size() > 1)
-				result = match.str(1); //Flagged as an error, but still compiles.
-
-			//Debugger says that result is empty, but cout prints it
-			//Shit's strange
-			//cout << "REGEX RESULT = " << result << endl;
-
-			CBlock* resBlock = NULL;
-
-			//TODO: Fix the iterator - It's only getting to one element
-			for(std::vector<CBlock*>::iterator it(blockchain.vChain.begin()); it != blockchain.vChain.end(); ++it)
-			{
-				string hash = (*it)->GetHash().ToString();
-
-				if(hash.compare(0, result.length(), result) == 0)
-					resBlock = (*it);
-
-				//if(starts_with(hash, match[0]))
-				//	resBlock = (*it);
-			}
+			string response;
+			CBlock* resBlock;
+			resBlock = findBlock(str);
 
 			if(resBlock == NULL)
 				response = "Block not found";
 			else
 				response = resBlock->ToString();
+
+			send(csockfd, response.c_str(), response.size(), 0);
+		}
+		else if(str.find("PRINT CERTS") != string::npos)
+		{
+			string response;
+			CBlock* resBlock;
+			resBlock = findBlock(str);
+
+			if(resBlock == NULL)
+				response = "Block not found";
+			else
+			{
+				response = "----CERT SUBJECTS----\n";
+				for (std::vector<Certificate>::iterator it(resBlock->certs.begin());
+				     it != resBlock->certs.end(); ++it)
+				{
+					string data = (*it).getCertData();
+					response.append(data);
+					response.append("\n");
+				}
+			}
 
 			send(csockfd, response.c_str(), response.size(), 0);
 		}
@@ -106,7 +143,7 @@ void Server::receive()
 		}
 		else
 		{
-			string response = "No commands sent";
+			string response = "Invalid Command";
 			send(csockfd, response.c_str(), response.size(), 0);
 		}
 	}

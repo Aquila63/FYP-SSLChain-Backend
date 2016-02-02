@@ -66,9 +66,9 @@ public:
 	void generateCert(EVP_PKEY* pkey, unsigned char* countryCode, unsigned char* organization,
 						unsigned char* commonName, unsigned char* email);
 
-	void certDataVerif();
+	void printCertData();
 
-
+	string getCertData() const;
 
 	char* convertToPem();
 

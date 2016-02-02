@@ -1,3 +1,4 @@
+#include <fstream>
 #include "certs.h"
 
 Certificate::Certificate()
@@ -101,7 +102,7 @@ unsigned char* Certificate::uConvertToPem()
  * Print out the details of a certificate (used mainly to verify its contents)
  */
 
-void Certificate::certDataVerif()
+void Certificate::printCertData()
 {
 	BIO *bio_out = BIO_new_fp(stdout, BIO_NOCLOSE);
 
@@ -125,6 +126,32 @@ void Certificate::certDataVerif()
 	BIO_printf(bio_out, "\n");
 
 	BIO_free(bio_out);
+}
+
+string Certificate::getCertData() const
+{
+	/**
+	 * This purpose of this is to pass the data contained within the
+	 * certificate back to the server in a readable format. It's relatively easy
+	 * for OpenSSL's Basic IO (BIO) system to output the contents to the console/
+	 * stdio, but it's awfully difficult to place that data into a char buffer,
+	 * I ended up corrupting the certs I was testing it with.
+	 *
+	 * To solve this problem, I simply read the data into a file (very simple BIO
+	 * commands) then use a C++ file stream to grab that data and place it into a
+	 * string and delete the file. Something tells me that this is a terrible way
+	 * to do this, but it works pretty well.
+	 */
+
+	BIO *bio;
+	bio = BIO_new_file("subject.txt", "w");
+	X509_NAME_print(bio, X509_get_subject_name(cert), 0);
+	BIO_free(bio);
+
+	std::ifstream in ("subject.txt");
+	string str((std::istreambuf_iterator<char>(in)), std::istreambuf_iterator<char>());
+	remove("subject.txt");
+	return str;
 }
 
 void Certificate::calcHash()

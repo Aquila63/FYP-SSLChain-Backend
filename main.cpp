@@ -6,11 +6,14 @@
 * module that I construct
 */
 
+#include <boost/foreach.hpp>
+
 #include "primitives/block.h"
 #include "chain.h"
 #include "main.h"
 #include <iostream>
 #include "server.h"
+
 
 using namespace std;
 
@@ -41,7 +44,7 @@ std::vector<Certificate> createGenisisCerts()
 	                              (unsigned char*)"Trinity College, Dublin",
 	                              (unsigned char*)"John Doe",
 	                              (unsigned char*)"jodoe@tcd.ie");
-	//cert.certDataVerif();
+	//cert.printCertData();
 	vec.push_back(cert);
 
 
@@ -49,18 +52,21 @@ std::vector<Certificate> createGenisisCerts()
 	                               (unsigned char*)"University College Dublin",
 	                               (unsigned char*)"Jane Doe",
 	                               (unsigned char*)"jadoe@tcd.ie");
+	//cert2.printCertData();
 	vec.push_back(cert2);
 
 	Certificate cert3 = createCert((unsigned char*)"IE",
 	                               (unsigned char*)"Dublin City University",
 	                               (unsigned char*)"Joe Bloggs",
 	                               (unsigned char*)"jbloggs@tcd.ie");
+	//cert3.printCertData();
 	vec.push_back(cert3);
 
 	Certificate cert4 = createCert((unsigned char*)"UK",
 	                               (unsigned char*)"Queen's University Belfast",
 	                               (unsigned char*)"Billy Strong",
 	                               (unsigned char*)"bstring@qub.ac.uk");
+	//cert4.printCertData();
 	vec.push_back(cert4);
 
 	return vec;
@@ -192,10 +198,12 @@ int main()
 	CBlock genBlock2 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
 	server.blockchain.add(&genBlock2);
 
+	CBlock genBlock3 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
+	server.blockchain.add(&genBlock3);
+
 	//CBlock aBlock = createStandardBlock();
 	//addToChain(&aBlock);
 	server.start();
-
 
 	return 0;
 }

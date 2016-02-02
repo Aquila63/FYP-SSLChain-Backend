@@ -12,20 +12,22 @@ class Server
 {
 public:
 	/*
-	 * Server Suff
+	 * Server Stuff
 	 */
 	int socketfd, csockfd;
 	struct sockaddr_in serv_addr, client_addr;
+	Server();
+	int start();
+	void receive();
+	void closeSockets();
 
 	/*
 	 * SSLC stuff
 	 */
 	CChain blockchain;
+	CBlock* findBlock(string str);
 
-	Server();
-	int start();
-	void receive();
-	void closeSockets();
+
 };
 
 #endif //SERVERTEST_NET_H_H
