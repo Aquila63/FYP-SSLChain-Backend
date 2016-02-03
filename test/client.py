@@ -1,6 +1,27 @@
 import sys, socket, struct, random
 
+from Crypto.PublicKey import RSA
+from Crypto.Util import asn1
+from base64 import b64decode
+
 class Client():
+
+        def pem_cleanup(self, key):
+                i1 = key.find('\n')
+                i2 = key.rfind('\n')
+                return key[i1+1:i2-28]
+
+        def rsa_test(self, key):
+                key = self.pem_cleanup(key)
+		print key
+                keyDER = b64decode(key)
+		seq = asn1.DerSequence()
+                seq.decode(keyDER)
+                keyPub = RSA.construct( (seq[0], seq[1]) )
+                testData = "Test Data"
+                testData = keyPub.encrypt(testData, 32)
+                print testData
+
 
 	
 	def __init__(self, port):
@@ -20,9 +41,9 @@ class Client():
 			#try:
 			recv_data = s.recv(4096)
 			print recv_data + '\n'
+			self.rsa_test(recv_data)
 			#except socket.timeout:
 				#print "Something went wrong\n"
-
 
 if __name__ == '__main__':
 
