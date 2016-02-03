@@ -172,6 +172,18 @@ RSA* Certificate::getPublicKey()
 	return rsa;
 }
 
+string Certificate::keyToPem(RSA *key)
+{
+	BIO * bio_out = BIO_new(BIO_s_mem());
+	PEM_write_bio_RSAPublicKey(bio_out, key);
+	BUF_MEM *bio_buf;
+	BIO_get_mem_ptr(bio_out, &bio_buf);
+	string pemStr = string(bio_buf->data, bio_buf->length);
+	//char* pem = const_cast<char*>(pemStr.c_str());
+	BIO_free(bio_out);
+	return pemStr;
+}
+
 char* Certificate::getEmail()
 {
 	char* email;

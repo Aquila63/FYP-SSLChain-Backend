@@ -15,14 +15,14 @@ using std::string;
 
 Server::Server() { }
 
-CBlock* Server::findBlock(string str)
+CBlock* Server::findBlock(string cmd)
 {
 	string result;
 	std::regex re("GET BLOCK (.*)");
 	std::smatch match;
 	//cout << str << endl;
 	//assert(std::regex_search(str, match, re));
-	if(std::regex_search(str, match, re) && match.size() > 1)
+	if(std::regex_search(cmd, match, re) && match.size() > 1)
 		result = match.str(1); //Flagged as an error, but still compiles.
 
 	//Debugger says that result is empty, but cout prints it
@@ -31,7 +31,8 @@ CBlock* Server::findBlock(string str)
 
 	CBlock* resBlock = NULL;
 
-	for(std::vector<CBlock*>::iterator it(blockchain.vChain.begin()); it != blockchain.vChain.end(); ++it)
+	for(std::vector<CBlock*>::iterator it(blockchain.vChain.begin());
+	    it != blockchain.vChain.end(); ++it)
 	{
 		string hash = (*it)->GetHash().ToString();
 
@@ -124,7 +125,7 @@ void Server::receive()
 			else
 			{
 				response = "----CERT SUBJECTS----\n";
-				for (std::vector<Certificate>::iterator it(resBlock->certs.begin());
+				for(vector<Certificate>::iterator it(resBlock->certs.begin());
 				     it != resBlock->certs.end(); ++it)
 				{
 					string data = (*it).getCertData();
@@ -132,6 +133,85 @@ void Server::receive()
 					response.append("\n");
 				}
 			}
+
+			send(csockfd, response.c_str(), response.size(), 0);
+		}
+		//TODO: Look into having cert detection in the chain its own function - can't be arsed right now
+		else if(str.find("GET CERT") != string::npos)
+		{
+			bool certFound = false;
+			string response, email, data;
+
+			std::regex re("GET CERT (.*)");
+			std::smatch match;
+			if(std::regex_search(str, match, re) && match.size() > 1)
+				email = match.str(1);
+
+			for(std::vector<CBlock*>::iterator it(blockchain.vChain.begin());
+			    it != blockchain.vChain.end(); ++it)
+			{
+				CBlock* block = (*it);
+				for(vector<Certificate>::iterator itc(block->certs.begin());
+				    itc != block->certs.end(); ++itc)
+				{
+					data = (*itc).getCertData();
+					if(data.find(email) != string::npos)
+					{
+						certFound = true;
+					}
+					//I really don't like doing this
+					if(certFound)
+						break;
+				}
+				//If there's a better way to do this, I can't think of it right now.
+				if(certFound)
+					break;
+			}
+
+			if(certFound)
+				response = data;
+			else
+				response = "Certificate email not found";
+
+			send(csockfd, response.c_str(), response.size(), 0);
+		}
+		else if(str.find("GET PUB KEY") != string::npos)
+		{
+			bool certFound = false;
+			string response, email, data;
+			Certificate cert;
+
+			std::regex re("GET PUB KEY (.*)");
+			std::smatch match;
+			if(std::regex_search(str, match, re) && match.size() > 1)
+				email = match.str(1);
+
+			for(std::vector<CBlock*>::iterator it(blockchain.vChain.begin());
+			    it != blockchain.vChain.end(); ++it)
+			{
+				CBlock* block = (*it);
+				for(vector<Certificate>::iterator itc(block->certs.begin());
+				    itc != block->certs.end(); ++itc)
+				{
+					data = (*itc).getCertData();
+					if(data.find(email) != string::npos)
+					{
+						certFound = true;
+						cert = (*itc);
+					}
+					//I really don't like doing this
+					if(certFound)
+						break;
+				}
+				//If there's a better way to do this, I can't think of it right now.
+				if(certFound)
+					break;
+			}
+
+			if(certFound)
+				response = cert.keyToPem(cert.getPublicKey());
+			else
+				response = "Certificate email not found";
 
 			send(csockfd, response.c_str(), response.size(), 0);
 		}

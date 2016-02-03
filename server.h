@@ -25,9 +25,7 @@ public:
 	 * SSLC stuff
 	 */
 	CChain blockchain;
-	CBlock* findBlock(string str);
-
-
+	CBlock* findBlock(string cmd);
 };
 
 #endif //SERVERTEST_NET_H_H

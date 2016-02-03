@@ -80,6 +80,8 @@ public:
 
 	RSA* getPublicKey();
 
+	string keyToPem(RSA* key);
+
 	char* getEmail();
 };
 
