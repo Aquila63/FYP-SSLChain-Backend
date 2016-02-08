@@ -7,6 +7,8 @@
 //#include <boost/algorithm/string/predicate.hpp>
 
 #include "server.h"
+#include "arith_uint256.h"
+#include "streams.h"
 
 using std::cout;
 using std::endl;
@@ -234,3 +236,34 @@ void Server::closeSockets() {
 	close(csockfd);
 	exit(0);
 }
+
+uint32_t Server::proofOfWork(CBlockHeader* header, uint32_t difficultyBits)
+{
+	uint32_t maxNonce = (uint32_t) pow(2, 32);
+	//uint32_t target = (uint32_t) pow(2, (256-difficultyBits));
+	arith_uint256 target = arith_uint256().SetCompact(difficultyBits);
+	uint256 hashOut = uint256();
+
+	CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+	CHash256 hasher;
+	ss << *header;
+	assert(ss.size() == 80);
+	hasher.Write((unsigned char*) &ss[0], 76);
+
+	for(uint32_t nonce = 0; nonce < maxNonce; nonce++)
+	{
+		CHash256(hasher).Write((unsigned char*) &nonce, 4).Finalize((unsigned char*) &hashOut);
+
+		unsigned char* hash = (unsigned char*) &hashOut;
+		arith_uint256 t_hash = UintToArith256(hashOut);
+		if(UintToArith256(hashOut) <= target)
+		{
+			printf("Success with nonce %d\n", nonce);
+			printf("Hash is %s\n", (unsigned char *) &hashOut);
+			return nonce;
+		}
+	}
+
+	printf("Failed after %d (max nonce) tries", maxNonce);
+	return maxNonce;
+};

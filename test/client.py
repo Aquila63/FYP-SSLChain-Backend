@@ -41,7 +41,7 @@ class Client():
 			#try:
 			recv_data = s.recv(4096)
 			print recv_data + '\n'
-			self.rsa_test(recv_data)
+			#self.rsa_test(recv_data)
 			#except socket.timeout:
 				#print "Something went wrong\n"
 

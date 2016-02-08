@@ -1,11 +1,21 @@
 #include <fstream>
 #include "certs.h"
 
+EVP_PKEY* generate_rsa()
+{
+	EVP_PKEY* pkey;
+	pkey = EVP_PKEY_new();
+	RSA * rsa;
+	rsa = RSA_generate_key(2048, RSA_F4, NULL, NULL);
+	EVP_PKEY_assign_RSA(pkey, rsa);
+
+	return pkey;
+};
+
 Certificate::Certificate()
 {
 	this->cert = NULL;
 }
-
 
 /**
  * Generate a certificate and enclose passed in data

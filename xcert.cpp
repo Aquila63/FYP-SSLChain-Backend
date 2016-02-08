@@ -2,14 +2,15 @@
  * Barebones SSLChain implementaton
  * xcert.cpp
  *
- * Essentially depricated thanks to the certificate primitives.
+ * Deprecated thanks to the certificate primitives.
  */
 
 #include <stdio.h>
 #include <bits/unique_ptr.h>
 #include "xcert.h"
 
-EVP_PKEY* generate_rsa()
+//Moved to certs.cpp
+/*EVP_PKEY* generate_rsa()
 {
 	EVP_PKEY* pkey;
 	pkey = EVP_PKEY_new();
@@ -18,7 +19,7 @@ EVP_PKEY* generate_rsa()
 	EVP_PKEY_assign_RSA(pkey, rsa);
 
 	return pkey;
-};
+};*/
 
 //Self signed
 X509* generate_x509(EVP_PKEY* pkey)

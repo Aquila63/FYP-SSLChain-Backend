@@ -17,7 +17,10 @@
 
 using namespace std;
 
-#define TEST_CERT_COUNT 4
+#define TEST_CERT_COUNT     4
+
+//There's no need to make POW difficult as there's no monetary reward; I've set the difficulty to 5 bits for now
+#define POW_DIFFICULTY_BITS  3
 
 CChain blockchain;
 
@@ -44,7 +47,7 @@ std::vector<Certificate> createGenisisCerts()
 	                              (unsigned char*)"Trinity College, Dublin",
 	                              (unsigned char*)"John Doe",
 	                              (unsigned char*)"jodoe@tcd.ie");
-	//cert.printCertData();
+	//cout << cert.keyToPem(cert.getPublicKey()) << endl;
 	vec.push_back(cert);
 
 
@@ -52,21 +55,21 @@ std::vector<Certificate> createGenisisCerts()
 	                               (unsigned char*)"University College Dublin",
 	                               (unsigned char*)"Jane Doe",
 	                               (unsigned char*)"jadoe@tcd.ie");
-	//cert2.printCertData();
+	//cout << cert2.keyToPem(cert2.getPublicKey()) << endl;
 	vec.push_back(cert2);
 
 	Certificate cert3 = createCert((unsigned char*)"IE",
 	                               (unsigned char*)"Dublin City University",
 	                               (unsigned char*)"Joe Bloggs",
 	                               (unsigned char*)"jbloggs@tcd.ie");
-	//cert3.printCertData();
+	//cout << cert3.keyToPem(cert3.getPublicKey()) << endl;
 	vec.push_back(cert3);
 
 	Certificate cert4 = createCert((unsigned char*)"UK",
 	                               (unsigned char*)"Queen's University Belfast",
 	                               (unsigned char*)"Billy Strong",
 	                               (unsigned char*)"bstring@qub.ac.uk");
-	//cert4.printCertData();
+	//cout << cert4.keyToPem(cert4.getPublicKey()) << endl;
 	vec.push_back(cert4);
 
 	return vec;
@@ -192,14 +195,18 @@ int main()
 
 	Server server;
 
-	CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
+	CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 0, 0x1d0fffff, 1);
 	server.blockchain.add(&genBlock);
+	printf("Testing POW...\n");
+	printf("Bits = %d\n", genBlock.nBits);
+	CBlockHeader genBlockHeader = genBlock.GetBlockHeader();
+	uint32_t nonce = server.proofOfWork(&genBlockHeader, genBlock.nBits);
 
-	CBlock genBlock2 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
-	server.blockchain.add(&genBlock2);
+	//CBlock genBlock2 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
+	//server.blockchain.add(&genBlock2);
 
-	CBlock genBlock3 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
-	server.blockchain.add(&genBlock3);
+	//CBlock genBlock3 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
+	//server.blockchain.add(&genBlock3);
 
 	//CBlock aBlock = createStandardBlock();
 	//addToChain(&aBlock);
