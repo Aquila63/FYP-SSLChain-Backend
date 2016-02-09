@@ -201,7 +201,8 @@ int main()
 	printf("Bits = %d\n", genBlock.nBits);
 	CBlockHeader genBlockHeader = genBlock.GetBlockHeader();
 	uint32_t nonce = server.proofOfWork(&genBlockHeader, genBlock.nBits);
-
+	genBlock.nNonce = nonce;
+	server.verifyProof(&genBlockHeader, genBlock.nNonce, genBlock.nBits);
 	//CBlock genBlock2 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
 	//server.blockchain.add(&genBlock2);
 

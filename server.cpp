@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <string>
 #include <regex>
+#include <time.h>
 //#include <boost/algorithm/string/predicate.hpp>
 
 #include "server.h"
@@ -250,16 +251,23 @@ uint32_t Server::proofOfWork(CBlockHeader* header, uint32_t difficultyBits)
 	assert(ss.size() == 80);
 	hasher.Write((unsigned char*) &ss[0], 76);
 
+	clock_t start;
+	double duration;
+
+	start = clock();
 	for(uint32_t nonce = 0; nonce < maxNonce; nonce++)
 	{
 		CHash256(hasher).Write((unsigned char*) &nonce, 4).Finalize((unsigned char*) &hashOut);
 
-		unsigned char* hash = (unsigned char*) &hashOut;
-		arith_uint256 t_hash = UintToArith256(hashOut);
+		//unsigned char* hash = (unsigned char*) &hashOut;
+		//arith_uint256 t_hash = UintToArith256(hashOut);
+
 		if(UintToArith256(hashOut) <= target)
 		{
+			duration = (clock() - start) / (double) CLOCKS_PER_SEC;
 			printf("Success with nonce %d\n", nonce);
 			printf("Hash is %s\n", (unsigned char *) &hashOut);
+			printf("Duration = %d mins %d secs\n", (int) duration / 60, (int) duration % 60);
 			return nonce;
 		}
 	}
@@ -267,3 +275,26 @@ uint32_t Server::proofOfWork(CBlockHeader* header, uint32_t difficultyBits)
 	printf("Failed after %d (max nonce) tries", maxNonce);
 	return maxNonce;
 };
+
+bool Server::verifyProof(CBlockHeader* header, uint32_t nonce, uint32_t difficultyBits)
+{
+	uint256 hashOut = uint256();
+	arith_uint256 target = arith_uint256().SetCompact(difficultyBits);
+	CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+	CHash256 hasher;
+	ss << *header;
+	assert(ss.size() == 80);
+	hasher.Write((unsigned char*) &ss[0], 76);
+	CHash256(hasher).Write((unsigned char*) &nonce, 4).Finalize((unsigned char*) &hashOut);
+
+	if(UintToArith256(hashOut) <= target)
+	{
+		printf("Proof Verified\n");
+		return true;
+	}
+	else
+	{
+		printf("Something's wrong\n");
+		return false;
+	}
+}

@@ -29,6 +29,7 @@ public:
 	CChain blockchain;
 	CBlock* findBlock(string cmd);
 	uint32_t proofOfWork(CBlockHeader* header, uint32_t difficultyBits);
+	bool verifyProof(CBlockHeader* header, uint32_t nonce, uint32_t difficultyBits);
 };
 
 #endif //SERVERTEST_NET_H_H
