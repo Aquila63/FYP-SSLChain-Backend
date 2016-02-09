@@ -54,14 +54,14 @@ std::vector<Certificate> createGenisisCerts()
 	Certificate cert2 = createCert((unsigned char*)"IE",
 	                               (unsigned char*)"University College Dublin",
 	                               (unsigned char*)"Jane Doe",
-	                               (unsigned char*)"jadoe@tcd.ie");
+	                               (unsigned char*)"jadoe@ucd.ie");
 	//cout << cert2.keyToPem(cert2.getPublicKey()) << endl;
 	vec.push_back(cert2);
 
 	Certificate cert3 = createCert((unsigned char*)"IE",
 	                               (unsigned char*)"Dublin City University",
 	                               (unsigned char*)"Joe Bloggs",
-	                               (unsigned char*)"jbloggs@tcd.ie");
+	                               (unsigned char*)"jbloggs@dcu.ie");
 	//cout << cert3.keyToPem(cert3.getPublicKey()) << endl;
 	vec.push_back(cert3);
 
@@ -74,6 +74,27 @@ std::vector<Certificate> createGenisisCerts()
 
 	return vec;
 }
+
+std::vector<Certificate> createGenisisCertsFromFile()
+{
+	std::vector<Certificate> vec;
+
+	Certificate cert1;
+	cert1.generateCertFromFile((char*)"../certs/genCert1");
+	vec.push_back(cert1);
+	Certificate cert2;
+	cert2.generateCertFromFile((char*)"../certs/genCert2");
+	vec.push_back(cert2);
+	Certificate cert3;
+	cert3.generateCertFromFile((char*)"../certs/genCert3");
+	vec.push_back(cert3);
+	Certificate cert4;
+	cert4.generateCertFromFile((char*)"../certs/genCert4");
+	vec.push_back(cert4);
+
+	return vec;
+}
+
 
 Certificate createCert( unsigned char* countryCode, unsigned char* organization,
                         unsigned char* commonName, unsigned char* email)
@@ -131,7 +152,8 @@ CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, uint3
 
 	//Certs are normal here, they get hashed when they are passed through the m-tree
 	 std::vector<Certificate> nCerts;
-	 nCerts = createGenisisCerts();
+	 //nCerts = createGenisisCerts();
+	nCerts = createGenisisCertsFromFile();
 
 	//printf("....CreatingBlocks....\n");
 	CBlock genesis;
@@ -197,20 +219,18 @@ int main()
 
 	CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 0, 0x1d0fffff, 1);
 	server.blockchain.add(&genBlock);
-	printf("Testing POW...\n");
+
+	/*printf("Testing POW...\n");
 	printf("Bits = %d\n", genBlock.nBits);
 	CBlockHeader genBlockHeader = genBlock.GetBlockHeader();
 	uint32_t nonce = server.proofOfWork(&genBlockHeader, genBlock.nBits);
 	genBlock.nNonce = nonce;
-	server.verifyProof(&genBlockHeader, genBlock.nNonce, genBlock.nBits);
-	//CBlock genBlock2 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
-	//server.blockchain.add(&genBlock2);
+	server.verifyProof(&genBlockHeader, genBlock.nNonce, genBlock.nBits);*/
 
-	//CBlock genBlock3 = CreateGenesisBlock(getLinuxTS(), 2, 0x207fffff, 1);
-	//server.blockchain.add(&genBlock3);
-
+	addToChain(&genBlock);
 	//CBlock aBlock = createStandardBlock();
 	//addToChain(&aBlock);
+
 	server.start();
 
 	return 0;

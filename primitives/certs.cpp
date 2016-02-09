@@ -60,6 +60,19 @@ void Certificate::generateCert(EVP_PKEY* pkey, unsigned char* countryCode, unsig
 	this->cert = x509;
 }
 
+void Certificate::generateCertFromFile(char* path)
+{
+	FILE *fp = fopen(path, "r");
+	if(!fp)
+	{
+		fprintf(stderr, "unable to open: %s\n", path);
+		exit(0);
+	}
+
+	X509* cert = PEM_read_X509(fp, NULL, NULL, NULL);
+	this->cert = cert;
+}
+
 /**
  * Convert the X509 cert associated with the object to PEM format (base64 encoded data w/ headers)
  *
@@ -166,7 +179,7 @@ string Certificate::getCertData() const
 
 void Certificate::calcHash()
 {
-	//hash = SerializeHash(*this);
+	hash = SerializeHash(*this);
 }
 
 uint256 Certificate::GetHash() const

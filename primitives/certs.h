@@ -66,6 +66,8 @@ public:
 	void generateCert(EVP_PKEY* pkey, unsigned char* countryCode, unsigned char* organization,
 						unsigned char* commonName, unsigned char* email);
 
+	void generateCertFromFile(char* path);
+
 	void printCertData();
 
 	string getCertData() const;
