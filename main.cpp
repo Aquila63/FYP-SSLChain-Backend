@@ -80,16 +80,16 @@ std::vector<Certificate> createGenisisCertsFromFile()
 	std::vector<Certificate> vec;
 
 	Certificate cert1;
-	cert1.generateCertFromFile((char*)"../certs/genCert1");
+	cert1.generateCertFromFile((char*)"../certs/genCert1.pem");
 	vec.push_back(cert1);
 	Certificate cert2;
-	cert2.generateCertFromFile((char*)"../certs/genCert2");
+	cert2.generateCertFromFile((char*)"../certs/genCert2.pem");
 	vec.push_back(cert2);
 	Certificate cert3;
-	cert3.generateCertFromFile((char*)"../certs/genCert3");
+	cert3.generateCertFromFile((char*)"../certs/genCert3.pem");
 	vec.push_back(cert3);
 	Certificate cert4;
-	cert4.generateCertFromFile((char*)"../certs/genCert4");
+	cert4.generateCertFromFile((char*)"../certs/genCert4.pem");
 	vec.push_back(cert4);
 
 	return vec;
@@ -217,7 +217,8 @@ int main()
 
 	Server server;
 
-	CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 0, 0x1d0fffff, 1);
+	//CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 0, 0x1d0fffff, 1);
+	CBlock genBlock = CreateGenesisBlock(0, 0, 0x1d055559, 1);
 	server.blockchain.add(&genBlock);
 
 	/*printf("Testing POW...\n");
@@ -225,8 +226,8 @@ int main()
 	CBlockHeader genBlockHeader = genBlock.GetBlockHeader();
 	uint32_t nonce = server.proofOfWork(&genBlockHeader, genBlock.nBits);
 	genBlock.nNonce = nonce;
-	server.verifyProof(&genBlockHeader, genBlock.nNonce, genBlock.nBits);*/
-
+	server.verifyProof(&genBlockHeader, genBlock.nNonce, genBlock.nBits);
+	*/
 	addToChain(&genBlock);
 	//CBlock aBlock = createStandardBlock();
 	//addToChain(&aBlock);

@@ -187,18 +187,19 @@ uint256 Certificate::GetHash() const
 	return SerializeHash(*this);
 }
 
-RSA* Certificate::getPublicKey()
+EVP_PKEY* Certificate::getPublicKey()
 {
 	EVP_PKEY* pkey = X509_get_pubkey(cert);
-	RSA* rsa = EVP_PKEY_get1_RSA(pkey);
-	EVP_PKEY_free(pkey);
-	return rsa;
+	//RSA* rsa = EVP_PKEY_get1_RSA(pkey);
+	//EVP_PKEY_free(pkey);
+	return pkey;
 }
 
-string Certificate::keyToPem(RSA *key)
+string Certificate::keyToPem(EVP_PKEY *key)
 {
 	BIO * bio_out = BIO_new(BIO_s_mem());
-	PEM_write_bio_RSAPublicKey(bio_out, key);
+	//PEM_write_bio_RSAPublicKey(bio_out, key);
+	PEM_write_bio_PUBKEY(bio_out, key);
 	BUF_MEM *bio_buf;
 	BIO_get_mem_ptr(bio_out, &bio_buf);
 	string pemStr = string(bio_buf->data, bio_buf->length);

@@ -5,6 +5,7 @@
 #include <string>
 #include <regex>
 #include <time.h>
+#include <assert.h>
 //#include <boost/algorithm/string/predicate.hpp>
 
 #include "server.h"
@@ -91,6 +92,7 @@ void Server::receive()
 		nBytes = recv(csockfd, &buffer[0], buffer.size(), 0);
 		buffer.resize(nBytes);
 		string str(buffer.begin(), buffer.end());
+		cout << str << endl;
 
 		if(str.find("PRINT GENESIS BLOCK") != string::npos)
 		{
@@ -266,7 +268,8 @@ uint32_t Server::proofOfWork(CBlockHeader* header, uint32_t difficultyBits)
 		{
 			duration = (clock() - start) / (double) CLOCKS_PER_SEC;
 			printf("Success with nonce %d\n", nonce);
-			printf("Hash is %s\n", (unsigned char *) &hashOut);
+			//printf("Hash is %s\n", hashOut.ToString());
+			cout << "Hash is: " << hashOut.ToString() << endl;
 			printf("Duration = %d mins %d secs\n", (int) duration / 60, (int) duration % 60);
 			return nonce;
 		}

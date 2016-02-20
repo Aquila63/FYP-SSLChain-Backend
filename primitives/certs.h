@@ -80,9 +80,9 @@ public:
 
 	uint256 GetHash() const;
 
-	RSA* getPublicKey();
+	EVP_PKEY* getPublicKey();
 
-	string keyToPem(RSA* key);
+	string keyToPem(EVP_PKEY* key);
 
 	char* getEmail();
 };

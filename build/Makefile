@@ -114,6 +114,54 @@ SSLChain/fast:
 	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/build
 .PHONY : SSLChain/fast
 
+arith_uint256.o: arith_uint256.cpp.o
+.PHONY : arith_uint256.o
+
+# target to build an object file
+arith_uint256.cpp.o:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/arith_uint256.cpp.o
+.PHONY : arith_uint256.cpp.o
+
+arith_uint256.i: arith_uint256.cpp.i
+.PHONY : arith_uint256.i
+
+# target to preprocess a source file
+arith_uint256.cpp.i:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/arith_uint256.cpp.i
+.PHONY : arith_uint256.cpp.i
+
+arith_uint256.s: arith_uint256.cpp.s
+.PHONY : arith_uint256.s
+
+# target to generate assembly for a file
+arith_uint256.cpp.s:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/arith_uint256.cpp.s
+.PHONY : arith_uint256.cpp.s
+
+cleanse.o: cleanse.cpp.o
+.PHONY : cleanse.o
+
+# target to build an object file
+cleanse.cpp.o:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/cleanse.cpp.o
+.PHONY : cleanse.cpp.o
+
+cleanse.i: cleanse.cpp.i
+.PHONY : cleanse.i
+
+# target to preprocess a source file
+cleanse.cpp.i:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/cleanse.cpp.i
+.PHONY : cleanse.cpp.i
+
+cleanse.s: cleanse.cpp.s
+.PHONY : cleanse.s
+
+# target to generate assembly for a file
+cleanse.cpp.s:
+	$(MAKE) -f CMakeFiles/SSLChain.dir/build.make CMakeFiles/SSLChain.dir/cleanse.cpp.s
+.PHONY : cleanse.cpp.s
+
 crypto/hmac_sha512.o: crypto/hmac_sha512.cpp.o
 .PHONY : crypto/hmac_sha512.o
 
@@ -483,6 +531,12 @@ help:
 	@echo "... SSLChain"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... arith_uint256.o"
+	@echo "... arith_uint256.i"
+	@echo "... arith_uint256.s"
+	@echo "... cleanse.o"
+	@echo "... cleanse.i"
+	@echo "... cleanse.s"
 	@echo "... crypto/hmac_sha512.o"
 	@echo "... crypto/hmac_sha512.i"
 	@echo "... crypto/hmac_sha512.s"
