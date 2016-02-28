@@ -19,8 +19,8 @@ using namespace std;
 
 #define TEST_CERT_COUNT     4
 
-//There's no need to make POW difficult as there's no monetary reward; I've set the difficulty to 5 bits for now
-#define POW_DIFFICULTY_BITS  3
+//There's no need to make POW difficult as there's no monetary reward; I've set the difficulty to 3 leading 0s
+#define POW_DIFFICULTY_BITS  0x1f0fffff
 
 CChain blockchain;
 
@@ -189,7 +189,8 @@ CBlock createStandardBlock()
 	return aBlock;
 }
 
-void addToChain(CBlock* block)
+//Actually implemented in chain.h too, oops
+void addToChain(CBlock* block, CChain blockchain)
 {
 	block->nHeight = blockchain.GetHeight();
 	if(block->nHeight > 0)
@@ -217,18 +218,18 @@ int main()
 
 	Server server;
 
-	//CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 0, 0x1d0fffff, 1);
-	CBlock genBlock = CreateGenesisBlock(0, 0, 0x1d055559, 1);
-	server.blockchain.add(&genBlock);
+	//CBlock genBlock = CreateGenesisBlock(0, 0, POW_DIFFICULTY_BITS, 1);
+	CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 0, POW_DIFFICULTY_BITS, 1);
+	//server.blockchain.add(&genBlock);
 
-	/*printf("Testing POW...\n");
+	printf("Testing POW...\n");
 	printf("Bits = %d\n", genBlock.nBits);
 	CBlockHeader genBlockHeader = genBlock.GetBlockHeader();
 	uint32_t nonce = server.proofOfWork(&genBlockHeader, genBlock.nBits);
 	genBlock.nNonce = nonce;
 	server.verifyProof(&genBlockHeader, genBlock.nNonce, genBlock.nBits);
-	*/
-	addToChain(&genBlock);
+
+	server.blockchain.add(&genBlock);
 	//CBlock aBlock = createStandardBlock();
 	//addToChain(&aBlock);
 
