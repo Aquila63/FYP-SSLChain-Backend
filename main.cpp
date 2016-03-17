@@ -91,7 +91,9 @@ std::vector<Certificate> createGenisisCertsFromFile()
 	Certificate cert4;
 	cert4.generateCertFromFile((char*)"../certs/genCert4.pem");
 	vec.push_back(cert4);
-
+	Certificate cert5;
+	cert5.generateCertFromFile((char*)"../certs/genCert5.pem");
+	vec.push_back(cert5);
 	return vec;
 }
 
