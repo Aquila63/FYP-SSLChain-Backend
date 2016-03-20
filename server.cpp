@@ -70,9 +70,17 @@ int Server::start()
 void Server::receive()
 {
 	socklen_t clilen = sizeof(client_addr);
-	csockfd = accept(socketfd, (struct sockaddr* )&client_addr, &clilen);
+	//csockfd = accept(socketfd, (struct sockaddr* )&client_addr, &clilen);
 	while(1)
 	{
+		/*
+		 * Accept the connection within the server loop
+		 * Having it outside caused an issue with the nodejs server whereby it was
+		 * unable to reconnect after doing its thing.
+		 * Pretty stupid mistake in fairness
+		 */ 
+		 csockfd = accept(socketfd, (struct sockaddr* )&client_addr, &clilen);
+
 		printf("\n");
 		long nBytes = 0;
 		//char buffer[1000];
@@ -88,8 +96,8 @@ void Server::receive()
 		vector<unsigned char> buffer;
 		buffer.resize(5000);
 
-
 		nBytes = recv(csockfd, &buffer[0], buffer.size(), 0);
+		//printf("%lu\n", nBytes);
 		buffer.resize(nBytes);
 		string str(buffer.begin(), buffer.end());
 		cout << str << endl;
