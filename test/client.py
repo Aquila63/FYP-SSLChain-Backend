@@ -23,27 +23,34 @@ class Client():
                 print testData
 
 
-	
+
 	def __init__(self, port):
 
-		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		s.settimeout(1.5)
-		#self.ip = socket.inet_ntoa(struct.pack('>I', random.randint(1, 0xffffffff)))
-		self.port = port
-		s.connect(("localhost", self.port))			
-		
+		#The client now connects to the backend server after each command is recieved
+		#This emulates the current front-end behaviour, which is caused by NodeJS.
+
 		while 1:
 			print '\n'
 			self.message = raw_input("Enter Command: ")
-			
+
+			#Create the socket and roll
+			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			s.settimeout(1.5)
+			self.port = port
+			s.connect(("localhost", self.port))
+
+			#Send command
 			s.sendall(self.message)
-			
-			#try:
-			recv_data = s.recv(4096)
-			print recv_data + '\n'
-			#self.rsa_test(recv_data)
-			#except socket.timeout:
-				#print "Something went wrong\n"
+
+			try:
+				#Print server response
+				recv_data = s.recv(4096)
+				print recv_data + '\n'
+				s.close()
+				#self.rsa_test(recv_data)
+			except socket.timeout:
+				print "Timed Out...:("
+				continue
 
 if __name__ == '__main__':
 

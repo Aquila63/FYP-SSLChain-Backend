@@ -38,7 +38,7 @@ public:
 		return (int) vChain.size();
 	}
 
-	void add(CBlock* block)
+	void setChainPos(CBlock* block)
 	{
 		block->nHeight = this->GetHeight();
 		if(block->nHeight > 0)
@@ -46,6 +46,10 @@ public:
 			uint256 pHash = this->Tip()->GetHash();
 			block->hashPrevBlock = pHash;
 		}
+	}
+
+	void add(CBlock* block)
+	{
 		vChain.push_back(block);
 	}
 
@@ -58,7 +62,7 @@ public:
 			ss << strprintf("%s\n", block->GetHash().ToString());
 		}
 
-			return ss.str();
+		return ss.str();
 	}
 };
 

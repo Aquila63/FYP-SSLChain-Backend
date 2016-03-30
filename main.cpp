@@ -20,7 +20,7 @@ using namespace std;
 #define TEST_CERT_COUNT     4
 
 //There's no need to make POW difficult as there's no monetary reward; I've set the difficulty to 3 leading 0s
-#define POW_DIFFICULTY_BITS  0x1f0fffff
+#define POW_DIFFICULTY_BITS  0x1e0fffff
 
 CChain blockchain;
 
@@ -166,7 +166,7 @@ CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, uint3
 	genesis.certs = nCerts;
 	genesis.hashPrevBlock.SetNull();
 	genesis.hashMerkleRoot = genesis.ComputeMerkleRoot(NULL);
-	printf("Genesis block successfully created!\n");
+	printf("Block successfully created!\n");
 	return genesis;
 }
 
@@ -223,17 +223,47 @@ int main()
 	//CBlock genBlock = CreateGenesisBlock(0, 0, POW_DIFFICULTY_BITS, 1);
 	CBlock genBlock = CreateGenesisBlock(getLinuxTS(), 0, POW_DIFFICULTY_BITS, 1);
 	//server.blockchain.add(&genBlock);
-
-	printf("Testing POW...\n");
+	printf("Testing POW for Genesis Block...\n");
 	printf("Bits = %d\n", genBlock.nBits);
 	CBlockHeader genBlockHeader = genBlock.GetBlockHeader();
 	uint32_t nonce = server.proofOfWork(&genBlockHeader, genBlock.nBits);
 	genBlock.nNonce = nonce;
 	server.verifyProof(&genBlockHeader, genBlock.nNonce, genBlock.nBits);
-
 	server.blockchain.add(&genBlock);
+
 	//CBlock aBlock = createStandardBlock();
 	//addToChain(&aBlock);
+
+	/**
+	 *	Adding multiple genesis blocks for testing purposes
+	 *	Since the Linux TS will be different, the hashes will be different so
+	 *  it gives the impression that different blocks are present.
+	 */
+
+	//Sleep - Just in case the POW takes 0 seconds which results in idential timestamps
+	sleep(2);
+
+	CBlock block1 = CreateGenesisBlock(getLinuxTS(), 0, POW_DIFFICULTY_BITS, 1);
+	server.blockchain.setChainPos(&block1);
+	printf("Testing POW for Block 1...\n");
+	printf("Bits = %d\n", block1.nBits);
+	CBlockHeader blockHeader = block1.GetBlockHeader();
+	uint32_t nonce1 = server.proofOfWork(&blockHeader, block1.nBits);
+	block1.nNonce = nonce1;
+	server.verifyProof(&blockHeader, block1.nNonce, block1.nBits);
+	server.blockchain.add(&block1);
+
+	sleep(2);
+
+	CBlock block2 = CreateGenesisBlock(getLinuxTS(), 0, POW_DIFFICULTY_BITS, 1);
+	server.blockchain.setChainPos(&block2);	
+	printf("Testing POW for Block 2...\n");
+	printf("Bits = %d\n", block2.nBits);
+	CBlockHeader blockHeader2 = block2.GetBlockHeader();
+	uint32_t nonce2 = server.proofOfWork(&blockHeader2, block2.nBits);
+	block2.nNonce = nonce2;
+	server.verifyProof(&blockHeader2, block2.nNonce, block2.nBits);
+	server.blockchain.add(&block2);
 
 	server.start();
 

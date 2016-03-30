@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/ciaran/Documents/FYP/Back-End/arith_uint256.h
-assert.h
--
-cstring
--
-stdexcept
--
-stdint.h
--
-string
--
-vector
--
-
 /home/ciaran/Documents/FYP/Back-End/chain.h
 primitives/block.h
 /home/ciaran/Documents/FYP/Back-End/primitives/block.h
@@ -30,10 +16,6 @@ vector
 string
 -
 sstream
--
-
-/home/ciaran/Documents/FYP/Back-End/cleanse.h
-stdlib.h
 -
 
 /home/ciaran/Documents/FYP/Back-End/crypto/ripemd160.h
@@ -61,6 +43,24 @@ version.h
 /home/ciaran/Documents/FYP/Back-End/version.h
 vector
 -
+
+/home/ciaran/Documents/FYP/Back-End/main.cpp
+boost/foreach.hpp
+-
+primitives/block.h
+/home/ciaran/Documents/FYP/Back-End/primitives/block.h
+chain.h
+/home/ciaran/Documents/FYP/Back-End/chain.h
+main.h
+/home/ciaran/Documents/FYP/Back-End/main.h
+iostream
+-
+server.h
+/home/ciaran/Documents/FYP/Back-End/server.h
+
+/home/ciaran/Documents/FYP/Back-End/main.h
+primitives/certs.h
+/home/ciaran/Documents/FYP/Back-End/primitives/certs.h
 
 /home/ciaran/Documents/FYP/Back-End/primitives/block.h
 ../uint256.h
@@ -106,30 +106,6 @@ utility
 vector
 -
 
-/home/ciaran/Documents/FYP/Back-End/server.cpp
-sys/socket.h
--
-stdio.h
--
-netdb.h
--
-unistd.h
--
-string
--
-regex
--
-time.h
--
-assert.h
--
-server.h
-/home/ciaran/Documents/FYP/Back-End/server.h
-arith_uint256.h
-/home/ciaran/Documents/FYP/Back-End/arith_uint256.h
-streams.h
-/home/ciaran/Documents/FYP/Back-End/streams.h
-
 /home/ciaran/Documents/FYP/Back-End/server.h
 iostream
 -
@@ -143,36 +119,6 @@ tuple
 -
 chain.h
 /home/ciaran/Documents/FYP/Back-End/chain.h
-
-/home/ciaran/Documents/FYP/Back-End/streams.h
-zeroafterfree.h
-/home/ciaran/Documents/FYP/Back-End/zeroafterfree.h
-serialize.h
-/home/ciaran/Documents/FYP/Back-End/serialize.h
-algorithm
--
-assert.h
--
-ios
--
-limits
--
-map
--
-set
--
-stdint.h
--
-stdio.h
--
-string
--
-string.h
--
-utility
--
-vector
--
 
 /home/ciaran/Documents/FYP/Back-End/tinyformat.h
 cassert
@@ -219,12 +165,4 @@ uint256.h
 /home/ciaran/Documents/FYP/Back-End/uint256.h
 hash.h
 /home/ciaran/Documents/FYP/Back-End/hash.h
-
-/home/ciaran/Documents/FYP/Back-End/zeroafterfree.h
-cleanse.h
-/home/ciaran/Documents/FYP/Back-End/cleanse.h
-memory
--
-vector
--
 

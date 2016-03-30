@@ -78,7 +78,7 @@ void Server::receive()
 		 * Having it outside caused an issue with the nodejs server whereby it was
 		 * unable to reconnect after doing its thing.
 		 * Pretty stupid mistake in fairness
-		 */ 
+		 */
 		 csockfd = accept(socketfd, (struct sockaddr* )&client_addr, &clilen);
 
 		printf("\n");
@@ -104,13 +104,13 @@ void Server::receive()
 
 		if(str.find("PRINT GENESIS BLOCK") != string::npos)
 		{
-			string response = "----GENESIS BLOCK----\n";
+			string response = "\n----GENESIS BLOCK----\n\n";
 			response.append(blockchain.Genesis()->ToString());
 			send(csockfd, response.c_str(), response.size(), 0);
 		}
 		else if(str.find("PRINT CHAIN") != string::npos)
 		{
-			string response = "----BLOCK HASHES----\n";
+			string response = "\n----BLOCK HASHES----\n\n";
 			response.append(blockchain.printChain());
 			send(csockfd, response.c_str(), response.size(), 0);
 		}
@@ -137,7 +137,7 @@ void Server::receive()
 				response = "Block not found";
 			else
 			{
-				response = "----CERT SUBJECTS----\n";
+				response = "\n----CERT SUBJECTS----\n\n";
 				for(vector<Certificate>::iterator it(resBlock->certs.begin());
 				     it != resBlock->certs.end(); ++it)
 				{
@@ -149,7 +149,6 @@ void Server::receive()
 
 			send(csockfd, response.c_str(), response.size(), 0);
 		}
-		//TODO: Look into having cert detection in the chain its own function - can't be arsed right now
 		else if(str.find("GET CERT") != string::npos)
 		{
 			bool certFound = false;
@@ -212,19 +211,35 @@ void Server::receive()
 						certFound = true;
 						cert = (*itc);
 					}
-					//I really don't like doing this
 					if(certFound)
 						break;
 				}
-				//If there's a better way to do this, I can't think of it right now.
 				if(certFound)
 					break;
 			}
 
 			if(certFound)
-				response = cert.keyToPem(cert.getPublicKey());
+			{
+				response = "\n";
+				response.append(cert.keyToPem(cert.getPublicKey()));
+			}
 			else
 				response = "Certificate email not found";
+
+			send(csockfd, response.c_str(), response.size(), 0);
+		}
+		else if(str.find("HELP") != string::npos)
+		{
+			//I realise this should done on the client side, but at this point, I don't really care.
+
+			string response = "\n-----COMMANDS-----\n\n";
+			response.append("PRINT GENESIS BLOCK\n");
+			response.append("PRINT CHAIN\n");
+			response.append("GET BLOCK <block hash>\n");
+			response.append("PRINT CERTS <block hash>\n");
+			response.append("GET CERT <email>\n");
+			response.append("GET PUB KEY <email>\n");
+			response.append("SHUTDOWN\n");
 
 			send(csockfd, response.c_str(), response.size(), 0);
 		}
@@ -248,6 +263,9 @@ void Server::closeSockets() {
 	exit(0);
 }
 
+/**
+ *	Function for the server to run proof of work on the desired block
+ */
 uint32_t Server::proofOfWork(CBlockHeader* header, uint32_t difficultyBits)
 {
 	uint32_t maxNonce = (uint32_t) pow(2, 32);
@@ -287,6 +305,9 @@ uint32_t Server::proofOfWork(CBlockHeader* header, uint32_t difficultyBits)
 	return maxNonce;
 };
 
+/**
+ *	Function to verify a nonce obtained through POW
+ */
 bool Server::verifyProof(CBlockHeader* header, uint32_t nonce, uint32_t difficultyBits)
 {
 	uint256 hashOut = uint256();
@@ -300,12 +321,12 @@ bool Server::verifyProof(CBlockHeader* header, uint32_t nonce, uint32_t difficul
 
 	if(UintToArith256(hashOut) <= target)
 	{
-		printf("Proof Verified\n");
+		printf("Proof Verified\n\n\n");
 		return true;
 	}
 	else
 	{
-		printf("Something's wrong\n");
+		printf("Something's wrong\n\n\n");
 		return false;
 	}
 }
