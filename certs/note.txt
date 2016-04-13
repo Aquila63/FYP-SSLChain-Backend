@@ -1,0 +1,3 @@
+The certs included here are for client-side decryption and should go in the home directory (~/certs).
+
+For email decryption, a new one should be created to correspond with a new one on the Blockchain, whose certs are stored within that repo, but these are the same if I remember correctly.
