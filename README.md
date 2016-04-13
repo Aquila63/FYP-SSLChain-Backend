@@ -4,7 +4,7 @@ This is an implementation of the Bitcoin blockchain (https://github.com/bitcoin/
 
 #Installation & Use
 
-To compile the code, run `make ..` under the `build` directory. To run the code, run `./SSLChain` within the same directory. I did neglect to clean up my builds during development, so you're better off running a `make clean` beforehand to be safe.
+To compile the code, run `make` under the `build` directory. To run the code, run `./SSLChain` within the same directory. I did neglect to clean up my builds during development, so you're better off running a `make clean` beforehand to be safe.
 
 When started, the server will initiate and begin calculating proof-of-work for the three test blocks; these should take anywhere from 0 - 20 seconds, but usually takes about 5-10 seconds on average.
 
